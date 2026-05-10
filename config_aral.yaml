@@ -1,0 +1,38 @@
+# ── Project Metadata ──────────────────────────────────
+project:
+  title: Aral Sea Level Modelling
+  type: MSc Thesis
+  institution: TU Delft
+  Author: A.B. van der Veen
+  version: "0.1"
+  date: 2024-06-01
+  description: all the configuration parameters for the Aral Sea level modelling project, including paths, model parameters, experiments, plotting settings, and station information.
+
+
+# ── Paths ─────────────────────────────────────────────
+paths:
+  project_root:  "/home/avandervee3/aral_sea_full_project"
+
+  #data directories
+  data_dir:      ./data
+  clonemaps_dir: ./data/clonemaps
+  grdc_dir:      ./data/grdc
+  shapefiles_dir: ./data/shapefiles
+  forcing_dir:   ./data/forcing
+
+  #configuration directories
+  config_dir:    ./config
+
+  #output directories
+  output_dir:    ./outputs
+
+  #notebooks and scripts directories
+  notebooks_dir: ./notebooks
+  scripts_dir:   ./scripts
+
+
+
+# -- Meteorological Forcing Data --
+
+
+
