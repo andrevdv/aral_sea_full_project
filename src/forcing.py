@@ -323,38 +323,75 @@ def create_forcing_slice(forcing_obj, start, end):
 # ===========================================================================
 
 
-def generate_PCRGLOBWB_ERA5_forcing(shape_name: str, start: str, end: str):
-    """Setup and generate forcing data for a given shapefile.
-    To be used with PCR-GLOBWB model.
+def generate_PCRGLOBWB_ERA5_forcing( 
+        start: str, 
+        end: str,
+        shapefile: Path | None = None,
+        shape_name: str | None = None,
+        output_name: str | None = None,
+        forcing_root: Path | None = None,
+    ) -> "ewatercycle.forcing.Forcing":
+    """Generate ERA5 forcing data for PCR-GLOBWB model.
 
     Parameters
     ----------
-    shape_name : str
-        Name of the shapefile (should match folder and shapefile name)
     start : str
-        Start date in ISO format, e.g., "1950-01-01T00:00:00Z"
+        Start date in ISO format, e.g., "1940-01-01T00:00:00Z"
     end : str
         End date in ISO format, e.g., "2020-12-31T00:00:00Z"
+    shapefile : Path, optional
+        Explicit path to the shapefile.
+        Mutually exclusive with shape_name.
+    shape_name : str, optional
+        Name of the shapefile (must match folder and file name in SHAPEFILES dir).
+        Mutually exclusive with shapefile. Remains for backwards compatibility.
+    output_name : str, optional
+        Name for the output folder. Defaults to shape_name or shapefile stem.
+    forcing_root : Path, optional
+        Root directory for forcing output. Defaults to FORCING_PCRGLOB from paths.py.
 
-    Returns:
+    Returns
     -------
     ewatercycle.forcing.Forcing
-        The generated forcing object
+        The generated forcing object.
+
+    Raises
+    ------
+    ValueError
+        If both or neither of shape_name and shapefile are provided.
     """
-    # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    if shape_name is not None and shapefile is not None:
+        raise ValueError("Provide either shape_name or shapefile, not both")
+    if shape_name is None and shapefile is None:
+        raise ValueError("Either shape_name or shapefile must be provided")
+    
+    # resolve shp and base name
+    if shapefile is not None:
+        shp = Path(shapefile)
+        base_name = shp.stem
+    else:
+        shp = SHAPEFILES / shape_name / f"{shape_name}.shp"
+        base_name = shape_name
+
+
+    # output_name overrides base_name if provided
+    if output_name is not None:
+        folder_name = output_name
+    else:
+        folder_name = base_name
 
     # year for naming
     year_span = f"{start[:4]}-{end[:4]}"
 
     # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_PCRGLOB / f"ERA5_{year_span}" / shape_name
+    root = Path(forcing_root) if forcing_root is not None else FORCING_PCRGLOB
+    forcing_dir = root / f"ERA5_{year_span}" / folder_name
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     esmvaltool_padding = 2
 
     lon_min_f, lat_min_f, lon_max_f, lat_max_f = get_integer_multiple_bounds(
-        shapefile,  #   <----- add shapefiles here
+        shapefile = shp,  #   <----- add shapefiles here
         multiple=3,  # makes sure resolution is always correct
     )
 
