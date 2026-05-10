@@ -33,6 +33,27 @@ paths:
 
 
 # -- Meteorological Forcing Data --
+forcing:
+  basin: "AralSea_basin"
+
+  models: ["MIROC6", "NorESM2-LM", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
+  ensemble: "r1i1p1f1"
+  scenarios: ["ssp126", "ssp245", "ssp370", "ssp585"]
 
 
+
+
+simulation_period:
+  historical_cmip_start_date: "1940-01-01T00:00:00Z"
+  historical_cmip_end_date: "2014-12-31T00:00:00Z"
+  future_start_date: "2015-01-01T00:00:00Z"
+  future_end_date: "2100-12-31T00:00:00Z"
+  era5_start_date: "1940-01-01T00:00:00Z"
+  era5_end_date: "2020-12-31T00:00:00Z"
+
+
+
+
+
+# -- Model Parameters --
 

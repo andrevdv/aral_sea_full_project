@@ -385,13 +385,13 @@ def generate_PCRGLOBWB_ERA5_forcing(
 
     # Directory where forcing outputs will be stored
     root = Path(forcing_root) if forcing_root is not None else FORCING_PCRGLOB
-    forcing_dir = root / f"ERA5_{year_span}" / folder_name
+    forcing_dir = root / year_span / folder_name
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     esmvaltool_padding = 2
 
     lon_min_f, lat_min_f, lon_max_f, lat_max_f = get_integer_multiple_bounds(
-        shapefile = shp,  #   <----- add shapefiles here
+        shapefiles = shp,  #   <----- add shapefiles here
         multiple=3,  # makes sure resolution is always correct
     )
 
@@ -401,7 +401,7 @@ def generate_PCRGLOBWB_ERA5_forcing(
         end_time=end,
         start_time_climatology=start,
         end_time_climatology=end,
-        shape=shapefile,
+        shape=shp,
         extract_region={
             "start_longitude": lon_min_f - esmvaltool_padding,
             "end_longitude": lon_max_f + esmvaltool_padding,
@@ -415,31 +415,48 @@ def generate_PCRGLOBWB_ERA5_forcing(
 
 
 def generate_PCRGLOBWB_CMIP_historical_forcing(
-    shape_name: str,
     start: str,
     end: str,
     model: str = DEFAULT_CMIP6_MODELS["historical"],
     ensemble: str = "r1i1p1f1",
-):
-    """Setup and generate forcing data for a given shapefile.
-    To be used with PCR-GLOBWB model.
+    forcing_root: Path | None = None,
+    shape_name: str | None = None,
+    shapefile: Path | None = None,
+    ) -> "ewatercycle.forcing.Forcing":
+    """Generate CMIP6 historical forcing data for PCR-GLOBWB model.
 
     Parameters
     ----------
     shape_name : str
-        Name of the shapefile (should match folder and shapefile name)
+        Name of the shapefile (must match folder and file name in SHAPEFILES dir).
     start : str
-        Start date in ISO format, e.g., "1950-01-01T00:00:00Z"
+        Start date in ISO format, e.g., "1940-01-01T00:00:00Z"
     end : str
-        End date in ISO format, e.g., "2020-12-31T00:00:00Z"
+        End date in ISO format, e.g., "2014-12-31T00:00:00Z"
+    model : str, optional
+        CMIP6 model name. Defaults to DEFAULT_CMIP6_MODELS["historical"].
+    ensemble : str, optional
+        Ensemble member identifier. Defaults to "r1i1p1f1".
+    forcing_root : Path, optional
+        Root directory for forcing output. Defaults to FORCING_PCRGLOB from paths.py.
 
-    Returns:
+    Returns
     -------
     ewatercycle.forcing.Forcing
-        The generated forcing object
+        The generated forcing object.
     """
     # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    # Path to the shapefile
+    if shape_name is not None and shapefile is not None:
+        raise ValueError("Provide either shape_name or shapefile, not both")
+    if shape_name is None and shapefile is None:
+        raise ValueError("Either shape_name or shapefile must be provided")
+
+    if shapefile is not None:
+        shp = Path(shapefile)
+        shape_name = shp.stem
+    else:
+        shp = SHAPEFILES / shape_name / f"{shape_name}.shp"
 
     cmip_historical = {
         "project": "CMIP6",
@@ -452,14 +469,15 @@ def generate_PCRGLOBWB_CMIP_historical_forcing(
     # year for naming
     year_span = f"{start[:4]}-{end[:4]}"
 
-    # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_PCRGLOB / f"CMIP6_{model}_{year_span}" / shape_name
+    # make output directory
+    root = Path(forcing_root) if forcing_root is not None else FORCING_PCRGLOB
+    forcing_dir = root / model / year_span / shape_name
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     esmvaltool_padding = 2
 
     lon_min_f, lat_min_f, lon_max_f, lat_max_f = get_integer_multiple_bounds(
-        shapefile,  #   <----- add shapefiles here
+        shapefiles = shp,  #   <----- add shapefiles here
         multiple=3,  # makes sure resolution is always correct
     )
 
@@ -469,7 +487,7 @@ def generate_PCRGLOBWB_CMIP_historical_forcing(
         end_time=end,
         start_time_climatology=start,
         end_time_climatology=end,
-        shape=shapefile,
+        shape=shp,
         extract_region={
             "start_longitude": lon_min_f - esmvaltool_padding,
             "end_longitude": lon_max_f + esmvaltool_padding,
@@ -483,13 +501,16 @@ def generate_PCRGLOBWB_CMIP_historical_forcing(
 
 
 def generate_PCRGLOBWB_CMIP_future_forcing(
-    shape_name: str,
     start: str,
     end: str,
     ssp: str,
     model: str = DEFAULT_CMIP6_MODELS["future"],
     ensemble: str = "r1i1p1f1",
-):
+    forcing_root: Path | None = None,
+    shape_name: str | None = None,
+    shapefile: Path | None = None,
+) -> "ewatercycle.forcing.Forcing":
+    
     """Setup and generate forcing data for a given shapefile.
     To be used with PCR-GLOBWB model.
 
@@ -502,13 +523,22 @@ def generate_PCRGLOBWB_CMIP_future_forcing(
     end : str
         End date in ISO format, e.g., "2020-12-31T00:00:00Z"
 
-    Returns:
+    Returns
     -------
     ewatercycle.forcing.Forcing
-        The generated forcing object
+        The generated forcing object.
     """
     # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    if shape_name is not None and shapefile is not None:
+        raise ValueError("Provide either shape_name or shapefile, not both")
+    if shape_name is None and shapefile is None:
+        raise ValueError("Either shape_name or shapefile must be provided")
+
+    if shapefile is not None:
+        shp = Path(shapefile)
+        shape_name = shp.stem
+    else:
+        shp = SHAPEFILES / shape_name / f"{shape_name}.shp"
 
     cmip_dataset = {
         "project": "CMIP6",
@@ -524,13 +554,14 @@ def generate_PCRGLOBWB_CMIP_future_forcing(
     year_span = f"{start[:4]}-{end[:4]}"
 
     # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_PCRGLOB / "CMIP6" / model / ssp / ensemble / year_span / shape_name
+    root = Path(forcing_root) if forcing_root is not None else FORCING_PCRGLOB
+    forcing_dir = root / model / ssp / ensemble / year_span / shape_name
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     esmvaltool_padding = 2
 
     lon_min_f, lat_min_f, lon_max_f, lat_max_f = get_integer_multiple_bounds(
-        shapefile,  #   <----- add shapefiles here
+        shapefiles = shp,  #   <----- add shapefiles here
         multiple=3,  # makes sure resolution is always correct
     )
 
@@ -540,7 +571,7 @@ def generate_PCRGLOBWB_CMIP_future_forcing(
         end_time=end,
         start_time_climatology=start,
         end_time_climatology=end,
-        shape=shapefile,
+        shape=shp,
         extract_region={
             "start_longitude": lon_min_f - esmvaltool_padding,
             "end_longitude": lon_max_f + esmvaltool_padding,
