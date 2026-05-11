@@ -37,8 +37,9 @@ forcing:
   basin: "AralSea_basin"
 
   models: ["MIROC6", "NorESM2-LM", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
-  ensemble: "r1i1p1f1"
+  ensemble: ["r1i1p1f1"]
   scenarios: ["ssp126", "ssp245", "ssp370", "ssp585"]
+  ewatercycle_tail: "work/diagnostic/script"
 
 
 

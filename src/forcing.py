@@ -16,6 +16,7 @@ import xarray as xr
 import xesmf as xe
 from tempfile import NamedTemporaryFile
 import os
+import numpy as np
 
 from .constants import DEFAULT_CMIP6_MODELS
 from .paths import (
@@ -471,7 +472,7 @@ def generate_PCRGLOBWB_CMIP_historical_forcing(
 
     # make output directory
     root = Path(forcing_root) if forcing_root is not None else FORCING_PCRGLOB
-    forcing_dir = root / model / year_span / shape_name
+    forcing_dir = root / model / ensemble / year_span / shape_name
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     esmvaltool_padding = 2
@@ -715,57 +716,57 @@ def detect_forcing_variable(ds):
 # ===========================================================================
 
 def bias_map_pcrglobwb_forcing(
-    cmip_future_forcing,
-    cmip_historical_forcing,
-    era5_forcing,
-    method="quantile_delta_mapping",
-    n_quantiles=1000,
-    overwrite=True,
-    spatial_chunk_size=16,
-):
-    """Bias-correct CMIP future PCR-GLOBWB forcing with ERA5 reference.
+    reference_forcing,
+    baseline_forcing,
+    target_forcing,
+    method: str = "quantile_delta_mapping",
+    n_quantiles: int = 1000,
+    overwrite: bool = True,
+    spatial_chunk_size: int = 16,
+) -> None:
+    """Bias-correct PCR-GLOBWB forcing using a reference dataset.
 
     Parameters
     ----------
-    cmip_future_forcing : PCRGlobWBForcing
-        CMIP future forcing object to be corrected.
-    cmip_historical_forcing : PCRGlobWBForcing
-        CMIP historical forcing object used as model baseline.
-    era5_forcing : PCRGlobWBForcing
-        ERA5 forcing object used as observational reference.
+    reference_forcing : PCRGlobWBForcing
+        Observational reference forcing (e.g. ERA5).
+    baseline_forcing : PCRGlobWBForcing
+        CMIP historical forcing used as model baseline.
+    target_forcing : PCRGlobWBForcing
+        Forcing to be bias-corrected (future or historical). Files overwritten in place.
     method : str
-        Bias-correction method from cmethods.
+        Bias-correction method from cmethods. Default is quantile_delta_mapping.
     n_quantiles : int
         Number of quantiles for quantile-based methods.
     overwrite : bool
-        Overwrite CMIP future files after correction.
+        Overwrite target files after correction.
     spatial_chunk_size : int
-        Chunk size used for lat/lon while correcting.
+        Chunk size for lat/lon dimensions during correction.
 
-    Returns:
+    Returns
     -------
     None
-        NetCDF files in cmip_future_forcing.directory are overwritten.
+        NetCDF files in target_forcing.directory are overwritten.
     """
     _bias_map_cmip_future_with_era5(
-        obs_path=era5_forcing.directory / era5_forcing.precipitationNC,
-        simh_path=cmip_historical_forcing.directory / cmip_historical_forcing.precipitationNC,
-        simp_path=cmip_future_forcing.directory / cmip_future_forcing.precipitationNC,
-        method=method,
-        n_quantiles=n_quantiles,
-        kind="*",
-        overwrite=overwrite,
-        spatial_chunk_size=spatial_chunk_size,
+        obs_path  = reference_forcing.directory / reference_forcing.precipitationNC,
+        simh_path = baseline_forcing.directory / baseline_forcing.precipitationNC,
+        simp_path = target_forcing.directory / target_forcing.precipitationNC,
+        method    = method,
+        n_quantiles = n_quantiles,
+        kind      = "*",
+        overwrite = overwrite,
+        spatial_chunk_size = spatial_chunk_size,
     )
     _bias_map_cmip_future_with_era5(
-        obs_path=era5_forcing.directory / era5_forcing.temperatureNC,
-        simh_path=cmip_historical_forcing.directory / cmip_historical_forcing.temperatureNC,
-        simp_path=cmip_future_forcing.directory / cmip_future_forcing.temperatureNC,
-        method=method,
-        n_quantiles=n_quantiles,
-        kind="+",
-        overwrite=overwrite,
-        spatial_chunk_size=spatial_chunk_size,
+        obs_path  = reference_forcing.directory / reference_forcing.temperatureNC,
+        simh_path = baseline_forcing.directory / baseline_forcing.temperatureNC,
+        simp_path = target_forcing.directory / target_forcing.temperatureNC,
+        method    = method,
+        n_quantiles = n_quantiles,
+        kind      = "+",
+        overwrite = overwrite,
+        spatial_chunk_size = spatial_chunk_size,
     )
 
 
@@ -775,6 +776,11 @@ def _pick_variable_name(ds, preferred_names):
         if name in ds.data_vars:
             return name
     return list(ds.data_vars)[0]
+
+
+def _bias_correction_data_summary(da):
+    """Return a compact summary for bias-correction diagnostics."""
+    return f"dims={dict(da.sizes)}, size={da.size}"
 
 
 def _assert_writable_target(path):
@@ -876,12 +882,40 @@ def _bias_map_cmip_future_with_era5(
 
     target_dtype = simp_var_encoding.get("dtype", simp.dtype)
 
-    # cmethods expects matching non-time coordinates.
-    if "lat" in simh.dims and "lon" in simh.dims:
-        obs = obs.interp(lat=simh["lat"], lon=simh["lon"], method="linear")
-        simp = simp.interp(lat=simh["lat"], lon=simh["lon"], method="linear")
+
+
+    # # cmethods expects matching non-time coordinates.
+    # if "lat" in simh.dims and "lon" in simh.dims:
+    #     obs = obs.interp(lat=simh["lat"], lon=simh["lon"], method="linear")
+    #     simp = simp.interp(lat=simh["lat"], lon=simh["lon"], method="linear")
+
+    # Assert grids are already aligned after upstream regridding, no more silent interpolation here.
+    assert obs.dims == simh.dims, f"Dimension mismatch: obs={obs.dims}, simh={simh.dims}"
+    np.testing.assert_allclose(obs["lat"].values, simh["lat"].values, rtol=1e-5,
+        err_msg="lat coordinates do not match between obs and simh")
+    np.testing.assert_allclose(obs["lon"].values, simh["lon"].values, rtol=1e-5,
+        err_msg="lon coordinates do not match between obs and simh")
+
+    model_calendar = simh.time.dt.calendar
+    obs_calendar = obs.time.dt.calendar
+    if obs_calendar != model_calendar:
+        obs = obs.convert_calendar(model_calendar, align_on="date")
 
     obs, simh = xr.align(obs, simh, join="inner")
+
+    # cmethods fails with a cryptic zero-size reduction error when one of the
+    # aligned inputs has no valid data left. Catch that early with context.
+    for name, da in (("obs", obs), ("simh", simh), ("simp", simp)):
+        if da.size == 0:
+            raise ValueError(
+                f"Bias correction input {name} is empty after alignment/regridding: "
+                f"{_bias_correction_data_summary(da)}"
+            )
+        if bool(da.isnull().all().compute().item()):
+            raise ValueError(
+                f"Bias correction input {name} contains only missing values after "
+                f"alignment/regridding: {_bias_correction_data_summary(da)}"
+            )
 
     # cmethods runs apply_ufunc with time as a core dimension.
     qdm_chunks = {"time": -1}
