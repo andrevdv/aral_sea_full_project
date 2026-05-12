@@ -257,13 +257,23 @@ rule forcing_figures_bias_correction:
 # use aral.rivers etc
 
 
-# ── Basin-Wide Aggregation ─────────────────────────────
+# ── Aral Sea Model - simulation ─────────────────────────────
 
 # TODO: automatically run aral sea model
 # use aral.rivers etc to run the model for each scenario and store outputs in a structured way
 # enemble results for aral sea already possible
 # Karakum Ultra janky possible
+
+
+
+# ── Aral Sea Model - evaluation ─────────────────────────────
+
+# TODO: make some kind of evaluation
+# enemble results for aral sea already possible
+# Karakum Ultra janky possible
+# various visualizations already exist
 # 
+
 
 # ── Paper Figures and Tables ───────────────────────────
 
