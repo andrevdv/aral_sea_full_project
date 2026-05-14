@@ -947,7 +947,7 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
     -----
     - The function currently hardcodes the location of global parameter sets:
       `/data/shared/parameter-sets/pcrglobwb_global`.
-    - The `supported_model_versions` is currently set to `{"setters"}`
+    - The `supported_model_versions` is currently set to `{"25mar"}`
     - Simulation progress is displayed via a tqdm progress bar.
     - This function does not return Python objects with results; output files
       must be read separately after the run.

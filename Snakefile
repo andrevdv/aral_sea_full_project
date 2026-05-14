@@ -52,45 +52,60 @@ preflight_checks()
 
 rule all:
     input:
-        # ERA5
+        # -------------------------
+        # ERA5 forcing
+        # -------------------------
         str(FORCING_DIR / "ERA5" / "raw" / f"{ERA5_START}-{ERA5_END}" / BASIN / "generated.flag"),
 
-        # ---- CMIP6 ----
-        # CMIP historical raw
+        # -------------------------
+        # CMIP6 historical
+        # -------------------------
         expand(
             str(FORCING_DIR / "CMIP6" / "historical" / "raw" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
-            model = MODELS, ensemble = ENSEMBLE
+            model=MODELS,
+            ensemble=ENSEMBLE
         ),
 
-        # CMIP historical regridded
         expand(
             str(FORCING_DIR / "CMIP6" / "historical" / "regridded" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
-            model = MODELS, ensemble = ENSEMBLE
+            model=MODELS,
+            ensemble=ENSEMBLE
         ),
-        # CMIP historical bias corrected
+
         expand(
             str(FORCING_DIR / "CMIP6" / "historical" / "bias_corrected" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
-            model = MODELS, ensemble = ENSEMBLE
+            model=MODELS,
+            ensemble=ENSEMBLE
         ),
 
-
-        #cmip future 
+        # -------------------------
+        # CMIP6 future
+        # -------------------------
         expand(
             str(FORCING_DIR / "CMIP6" / "future" / "raw" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
-            model = MODELS, scenario = SCENARIOS, ensemble = ENSEMBLE
+            model=MODELS,
+            scenario=SCENARIOS,
+            ensemble=ENSEMBLE
         ),
 
-        #cmip future regridded
         expand(
             str(FORCING_DIR / "CMIP6" / "future" / "regridded" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
-            model = MODELS, scenario = SCENARIOS, ensemble = ENSEMBLE
-        ),
-        #cmip future bias corrected
-        expand(
-            str(FORCING_DIR / "CMIP6" / "future" / "bias_corrected" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
-            model = MODELS, scenario = SCENARIOS, ensemble = ENSEMBLE
+            model=MODELS,
+            scenario=SCENARIOS,
+            ensemble=ENSEMBLE
         ),
 
+        expand(
+            str(FORCING_DIR / "CMIP6" / "future" / "bias_corrected" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
+            model=MODELS,
+            scenario=SCENARIOS,
+            ensemble=ENSEMBLE
+        ),
+
+        # -------------------------
+        # Experiment planning output
+        # -------------------------
+        "results/runs/pcr_globwb/expanded_runs.csv"
 
 # ── Rules ─────────────────────────────────────────────
 
@@ -215,6 +230,7 @@ rule bias_correct_future:
     script:
         "workflow/bias_correct_future.py"
 
+
 rule forcing_figures_bias_correction:
     input:
         future_bias_corrected_flag = rules.bias_correct_future.output.flag,
@@ -233,6 +249,47 @@ rule forcing_figures_bias_correction:
 
 
 # ── PCR-GLOBWB2 RUNS ──────────────────────────────────────────
+
+
+# this takes the list with experiments and expands it to the full list. does snakemake magic i still don't fully understand.
+# prevents expanseive rerruning of the full list when we add new experiments
+# also makes it easier to keep track of what experiments are done.  and what their parameters are in a single file.
+#also makes it easier to add new parameters if we want to later on without having to change the snakemake rules etc
+rule expand_runs:
+    input:
+        planner="config/experiment_planner.csv",
+        yaml="config_aral.yaml"
+    output:
+        expanded_runs="results/runs/pcr_globwb/expanded_runs.csv"
+    log:
+        "logs/planning/expand_runs.log"
+    script:
+        "workflow/step2_pcrglobwb/expand_runs.py"
+
+
+
+
+
+
+
+
+# rule run_pcrglobwb_era5:
+#     input:
+#         forcing_flag = rules.generate_era5_forcing.output.flag
+#     output:
+#         flag = str(PROJECT_ROOT / "model_runs" / "ERA5" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag")
+#     log:
+#         str(PROJECT_ROOT / "logs" / "model_runs" / f"pcrglob_era5_{HIST_START}-{HIST_END}.log")
+#     params:
+#         config = config
+#     script:
+#         "workflow/step2_pcrglobwb/run_pcrglob_era5.py"
+
+
+
+
+
+
 
 # TODO: rule run_pcrglobwb_ensemble
 # already in .py form per experiment  just needs to be converted to Snakemake rules

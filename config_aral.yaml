@@ -36,7 +36,7 @@ paths:
 forcing:
   basin: "AralSea_basin"
 
-  models: ["MIROC6", "NorESM2-LM", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0"]
+  models: ["MIROC6", "EC-Earth3", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0", "NorESM2-LM"]
   ensemble: ["r1i1p1f1"]
   scenarios: ["ssp126", "ssp245", "ssp370", "ssp585"]
   ewatercycle_tail: "work/diagnostic/script"
@@ -55,6 +55,294 @@ simulation_period:
 
 
 
+# =========================
+# TIME DEFINITIONS (source of truth)
+# =========================
+time_blocks:
 
-# -- Model Parameters --
+  era5_1940_1970:
+    start_date: "1940-01-01T00:00:00Z"
+    end_date: "1970-12-31T00:00:00Z"
 
+  era5_1965_1995:
+    start_date: "1965-01-01T00:00:00Z"
+    end_date: "1995-12-31T00:00:00Z"
+
+  era5_1990_2020:
+    start_date: "1990-01-01T00:00:00Z"
+    end_date: "2020-12-31T00:00:00Z"
+
+  cmip_hist_1940_1970:
+    start_date: "1940-01-01T00:00:00Z"
+    end_date: "1970-12-31T00:00:00Z"
+
+  cmip_hist_1965_1995:
+    start_date: "1965-01-01T00:00:00Z"
+    end_date: "1995-12-31T00:00:00Z"
+
+  cmip_hist_1990_2014:
+    start_date: "1990-01-01T00:00:00Z"
+    end_date: "2014-12-31T00:00:00Z"
+
+  cmip_fut_2015_2047:
+    start_date: "2015-01-01T00:00:00Z"
+    end_date: "2047-12-31T00:00:00Z"
+
+  cmip_fut_2042_2074:
+    start_date: "2042-01-01T00:00:00Z"
+    end_date: "2074-12-31T00:00:00Z"
+
+  cmip_fut_2069_2100:
+    start_date: "2069-01-01T00:00:00Z"
+    end_date: "2100-12-30T00:00:00Z"
+
+  test_1990_short:
+    start_date: "1990-01-01T00:00:00Z"
+    end_date: "1990-03-31T00:00:00Z"
+
+
+# =========================
+# ACTIVE EXPERIMENT GROUPS
+# =========================
+active_time_blocks:
+
+  era5:
+    - era5_1940_1970
+    - era5_1965_1995
+    - era5_1990_2020
+
+  cmip_hist:
+    - cmip_hist_1940_1970
+    - cmip_hist_1965_1995
+    - cmip_hist_1990_2014
+
+  cmip_fut:
+    - cmip_fut_2015_2047
+    - cmip_fut_2042_2074
+    - cmip_fut_2069_2100
+
+  test:
+    - test_1990_short
+
+
+# =========================
+# PARAMETER SETS
+# =========================
+parameter_sets:
+
+  uncalibrated:
+    path: "data/clonemaps/uncalibrated.ini"
+    description: "Raw baseline model without calibration"
+
+  overall_calibrated:
+    path: "data/clonemaps/calibration_overall.ini"
+    description: "General calibration against all discharge observations"
+
+  amu_calibrated:
+    path: "data/clonemaps/calibrated_amu_inflow.ini"
+    description: "Calibration focused on Amu Darya inflow"
+
+  syr_calibrated:
+    path: "data/clonemaps/calibrated_syr_inflow.ini"
+    description: "Calibration focused on Syr Darya inflow"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# # PCRGLOB Parameters
+# pcrglob:
+#   # -- General Parameters --
+
+
+#   # -- Simulation Parameters --
+#   # Note: split all the experiments for computational reasons. Otherwise model runs would take 3 days instead of 1 day, which is impractical for testing and using the model.
+#   # Also stability, if one crashes, you don't lose the whole run, just a part of it and you can easily restart that part.
+#   # as we are only looking at discharges and not long term processes as groundwater storage 
+#   # parts will be merged in post-processing. Explained in the thesis.
+#   era5_experiments:
+#     era5_1940_1970:
+#       start_date: "1940-01-01T00:00:00Z"
+#       end_date: "1970-12-31T00:00:00Z"
+
+#     era5_1965_1995:
+#       start_date: "1965-01-01T00:00:00Z"
+#       end_date: "1995-12-31T00:00:00Z"
+
+#     era5_1990_2020:
+#       start_date: "1990-01-01T00:00:00Z"
+#       end_date: "2020-12-31T00:00:00Z"
+
+#   cmip_historical_experiments: 
+#     cmip_historical_run1:
+#       start_date: "1940-01-01T00:00:00Z"
+#       end_date: "1970-12-31T00:00:00Z"
+
+#     cmip_historical_run2:
+#       start_date: "1965-01-01T00:00:00Z"
+#       end_date: "1995-12-31T00:00:00Z"
+
+#     cmip_historical_run3:
+#       start_date: "1990-01-01T00:00:00Z"
+#     end_date: "2014-12-31T00:00:00Z"
+
+#   cmip_future_experiments:
+#     cmip_future_run1:
+#       start_date: "2015-01-01T00:00:00Z"
+#       end_date: "2047-12-31T00:00:00Z"
+
+#     cmip_future_run2:
+#       start_date: "2042-01-01T00:00:00Z"
+#       end_date: "2074-12-31T00:00:00Z"
+
+#     cmip_future_run3:
+#       start_date: "2069-01-01T00:00:00Z"
+#       end_date: "2100-12-30T00:00:00Z"
+
+#   test_experiment:
+#     start_date: "1990-01-01T00:00:00Z" #this is just for testing the model on a shorter period, not to be used in the final runs
+#     end_date: "1990-03-31T00:00:00Z" #this is just for testing the model on a shorter period, not to be used in the final runs
+
+
+# # -- Model Parameters --
+# parameter_sets:
+#   uncalibrated:
+#     path: "data/clonemaps/uncalibrated.ini"
+#     description: "Raw baseline model without calibration"
+
+#   overall_calibrated:
+#     path: "data/clonemaps/calibration_overall.ini"
+#     description: "General calibration against all discharge observations"
+
+#   amu_calibrated:
+#     path: "data/clonemaps/calibrated_amu_inflow.ini"
+#     description: "Calibration focused on Amu Darya inflow"
+
+#   syr_calibrated:
+#     path: "data/clonemaps/calibrated_syr_inflow.ini"
+#     description: "Calibration focused on Syr Darya inflow"
+
+# time_blocks:
+
+#   era5_1940_1970:
+#     start_date: "1940-01-01T00:00:00Z"
+#     end_date: "1970-12-31T00:00:00Z"
+
+#   era5_1965_1995:
+#     start_date: "1965-01-01T00:00:00Z"
+#     end_date: "1995-12-31T00:00:00Z"
+
+#   era5_1990_2020:
+#     start_date: "1990-01-01T00:00:00Z"
+#     end_date: "2020-12-31T00:00:00Z"
+
+#   cmip_hist_1940_1970:
+#     start_date: "1940-01-01T00:00:00Z"
+#     end_date: "1970-12-31T00:00:00Z"
+
+#   cmip_hist_1965_1995:
+#     start_date: "1965-01-01T00:00:00Z"
+#     end_date: "1995-12-31T00:00:00Z"
+
+#   cmip_hist_1990_2014:
+#     start_date: "1990-01-01T00:00:00Z"
+#     end_date: "2014-12-31T00:00:00Z"
+
+#   cmip_fut_2015_2047:
+#     start_date: "2015-01-01T00:00:00Z"
+#     end_date: "2047-12-31T00:00:00Z"
+
+#   cmip_fut_2042_2074:
+#     start_date: "2042-01-01T00:00:00Z"
+#     end_date: "2074-12-31T00:00:00Z"
+
+#   cmip_fut_2069_2100:
+#     start_date: "2069-01-01T00:00:00Z"
+#     end_date: "2100-12-30T00:00:00Z"
+
+#   test_1990_short:
+#     start_date: "1990-01-01T00:00:00Z"
+#     end_date: "1990-03-31T00:00:00Z"
+
+# active_time_blocks:
+
+#   era5:
+#     blocks:
+#       - era5_1940_1970
+#       - era5_1965_1995
+#       - era5_1990_2020
+
+#   cmip_hist:
+#     blocks:
+#       - cmip_hist_1940_1970
+#       - cmip_hist_1965_1995
+#       - cmip_hist_1990_2014
+
+#   cmip_fut:
+#     blocks:
+#       - cmip_fut_2015_2047
+#       - cmip_fut_2042_2074
+#       - cmip_fut_2069_2100
+
+#   test:
+#     blocks:
+#       - test_1990_short
+  
+# parameter_set_rules:
+
+#   era5:
+#     - uncalibrated
+#     - overall_calibrated
+#     - amu_calibrated
+#     - syr_calibrated
+
+#   cmip:
+#     - overall_calibrated
+
+# cmip_models:
+
+#   cmip_hist:
+#     miroc6:
+#       scenarios: [1]
+#     canesm5:
+#       scenarios: [1]
+#     ipsl_cm6a_lr:
+#       scenarios: [1]
+
+#   cmip_fut:
+#     miroc6:
+#       scenarios: [1,2,3,4,5,6]
+#     canesm5:
+#       scenarios: [1,2,3]
+#     ipsl_cm6a_lr:
+#       scenarios: [1,2,3,4,5,6]
