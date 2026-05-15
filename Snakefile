@@ -1,5 +1,6 @@
 # Snakefile
 from pathlib import Path
+import csv
 import sys
 
 configfile: "config_aral.yaml"
@@ -47,6 +48,41 @@ def preflight_checks():
 preflight_checks()
 
 
+def iter_expanded_pcrglob_runs():
+    planner_path = PROJECT_ROOT / "config" / "experiment_planner.csv"
+    with open(planner_path, newline="", encoding="utf-8-sig") as planner_file:
+        planner_rows = csv.DictReader(planner_file, delimiter=";")
+        for planner_row in planner_rows:
+            time_group = planner_row["time_group"]
+            if time_group not in config["active_time_blocks"]:
+                raise ValueError(f"Unknown time_group in experiment planner: {time_group}")
+
+            for index, time_block in enumerate(config["active_time_blocks"][time_group]):
+                if time_block not in config["time_blocks"]:
+                    raise ValueError(f"Unknown time_block in config: {time_block}")
+
+                yield {
+                    "job_id": f'{planner_row["run_id"]}_{index:03d}',
+                    "run_id": planner_row["run_id"],
+                    "group": time_group,
+                    "time_block": time_block,
+                    "start_date": config["time_blocks"][time_block]["start_date"],
+                    "end_date": config["time_blocks"][time_block]["end_date"],
+                    "model": planner_row["model"],
+                    "scenario": planner_row["scenario"],
+                    "forcing": planner_row["forcing"],
+                    "type": planner_row["type"],
+                    "parameter_set": planner_row["parameter_set"],
+                }
+
+
+def expand_pcrglob_job_ids():
+    return [row["job_id"] for row in iter_expanded_pcrglob_runs()]
+
+
+PCRGLOB_JOB_IDS = expand_pcrglob_job_ids()
+
+
 # ── Targets ───────────────────────────────────────────
 
 
@@ -60,17 +96,17 @@ rule all:
         # -------------------------
         # CMIP6 historical
         # -------------------------
-        expand(
-            str(FORCING_DIR / "CMIP6" / "historical" / "raw" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
-            model=MODELS,
-            ensemble=ENSEMBLE
-        ),
+        # expand(
+        #     str(FORCING_DIR / "CMIP6" / "historical" / "raw" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
+        #     model=MODELS,
+        #     ensemble=ENSEMBLE
+        # ),
 
-        expand(
-            str(FORCING_DIR / "CMIP6" / "historical" / "regridded" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
-            model=MODELS,
-            ensemble=ENSEMBLE
-        ),
+        # expand(
+        #     str(FORCING_DIR / "CMIP6" / "historical" / "regridded" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
+        #     model=MODELS,
+        #     ensemble=ENSEMBLE
+        # ),
 
         expand(
             str(FORCING_DIR / "CMIP6" / "historical" / "bias_corrected" / "{model}" / "{ensemble}" / f"{HIST_START}-{HIST_END}" / BASIN / "generated.flag"),
@@ -81,19 +117,19 @@ rule all:
         # -------------------------
         # CMIP6 future
         # -------------------------
-        expand(
-            str(FORCING_DIR / "CMIP6" / "future" / "raw" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
-            model=MODELS,
-            scenario=SCENARIOS,
-            ensemble=ENSEMBLE
-        ),
+        # expand(
+        #     str(FORCING_DIR / "CMIP6" / "future" / "raw" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
+        #     model=MODELS,
+        #     scenario=SCENARIOS,
+        #     ensemble=ENSEMBLE
+        # ),
 
-        expand(
-            str(FORCING_DIR / "CMIP6" / "future" / "regridded" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
-            model=MODELS,
-            scenario=SCENARIOS,
-            ensemble=ENSEMBLE
-        ),
+        # expand(
+        #     str(FORCING_DIR / "CMIP6" / "future" / "regridded" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
+        #     model=MODELS,
+        #     scenario=SCENARIOS,
+        #     ensemble=ENSEMBLE
+        # ),
 
         expand(
             str(FORCING_DIR / "CMIP6" / "future" / "bias_corrected" / "{model}" / "{scenario}" / "{ensemble}" / f"{FUT_START}-{FUT_END}" / BASIN / "generated.flag"),
@@ -105,7 +141,15 @@ rule all:
         # -------------------------
         # Experiment planning output
         # -------------------------
-        "results/runs/pcr_globwb/expanded_runs.csv"
+        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "expanded_runs.csv"),
+
+        # -------------------------
+        # PCR-GLOBWB experiments (model outputs stored under results/runs/pcrglobwb)
+        # -------------------------
+        expand(
+            str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag"),
+            job_id=PCRGLOB_JOB_IDS,
+        )
 
 # ── Rules ─────────────────────────────────────────────
 
@@ -260,14 +304,33 @@ rule expand_runs:
         planner="config/experiment_planner.csv",
         yaml="config_aral.yaml"
     output:
-        expanded_runs="results/runs/pcr_globwb/expanded_runs.csv"
+        expanded_runs=str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "expanded_runs.csv")
     log:
         "logs/planning/expand_runs.log"
     script:
         "workflow/step2_pcrglobwb/expand_runs.py"
 
 
+rule prepare_pcrglobwb_run:
+    input:
+        planner = "config/experiment_planner.csv",
+        yaml = "config_aral.yaml"
+    output:
+        run_config = str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "run_config.yaml")
+    log:
+        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "{job_id}_prepare.log")
+    script:
+        "workflow/step2_pcrglobwb/prepare_pcrglob_run.py"
 
+rule run_pcrglobwb_experiment:
+    input:
+        run_config = rules.prepare_pcrglobwb_run.output.run_config,
+    output:
+        flag =  str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag")
+    log:
+        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "{job_id}.log")
+    script:
+        "workflow/step2_pcrglobwb/run_pcrglob_experiment.py"
 
 
 
