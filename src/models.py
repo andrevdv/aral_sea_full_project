@@ -23,7 +23,9 @@ from src.utils import mmday_to_m3s
 from ewatercycle.container import ContainerImage
 
 
-INI_FILES = Path("/home/avandervee3/complete_pcrglob_run/data/ini_file")
+# INI_FILES is now passed as a parameter to simulate_PCRGLOBWB_experiment
+# This was previously hardcoded to complete_pcrglob_run which caused issues
+# when running experiments from other projects
 
 
 def simulate_HBV(
@@ -916,7 +918,7 @@ def run_hbv_simulations(
 
 
 
-def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, output_dir):
+def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, output_dir, ini_files_dir=None):
     """Run the PCR-GLOBWB hydrological model for a given forcing and configuration.
 
     This function sets up and executes a PCR-GLOBWB simulation using the
@@ -930,11 +932,16 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
         Path to the folder containing PCR-GLOBWB forcing files.
     ini_name : str
         Name of the configuration INI file (e.g., "my_catchment.ini").
-        This file should exist in the `INI_FILES` directory.
+        This file should exist in the `ini_files_dir` directory.
     start_date : str
         Start date of the simulation in ISO 8601 format (e.g., "1950-01-01T00:00:00Z").
     end_date : str
         End date of the simulation in ISO 8601 format (e.g., "2020-12-31T00:00:00Z").
+    output_dir : str or Path
+        Output directory for model results.
+    ini_files_dir : str or Path, optional
+        Path to the directory containing INI files. If None, defaults to
+        /home/avandervee3/complete_pcrglob_run/data/ini_file for backward compatibility.
 
     Returns:
     -------
@@ -953,6 +960,12 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
       must be read separately after the run.
     """
     from tqdm import tqdm as classic_tqdm
+
+    # Set default ini_files_dir for backward compatibility
+    if ini_files_dir is None:
+        ini_files_dir = Path("/home/avandervee3/complete_pcrglob_run/data/ini_file")
+    else:
+        ini_files_dir = Path(ini_files_dir)
 
     bmi_image = ContainerImage("/home/avandervee3/ewatercycle_pcr_25mar.sif")
 
@@ -976,7 +989,7 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
     parameter_set = ewatercycle.parameter_sets.ParameterSet(
         name="custom_parameter_set",
         directory=pcr_glob_directory,
-        config=INI_FILES / ini_name,
+        config=ini_files_dir / ini_name,
         target_model="pcrglobwb",
         supported_model_versions={"25mar"},
     )
