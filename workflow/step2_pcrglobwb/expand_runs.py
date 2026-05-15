@@ -10,6 +10,13 @@ planner_csv = snakemake.input.planner
 config_yaml = snakemake.input.yaml
 output_csv = snakemake.output.expanded_runs
 
+
+def write_text_if_changed(path: Path, content: str) -> None:
+    if path.exists() and path.read_text(encoding="utf-8") == content:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+
 # --------------------------------------------------
 # Load config
 # --------------------------------------------------
@@ -22,7 +29,7 @@ active_groups = config["active_time_blocks"]
 # --------------------------------------------------
 # Load experiment planner
 # --------------------------------------------------
-df = pd.read_csv(planner_csv, sep=";")
+df = pd.read_csv(planner_csv, sep=";", encoding="utf-8-sig")
 
 expanded = []
 
@@ -57,6 +64,8 @@ for _, row in df.iterrows():
             "end_date": tb["end_date"],
             "model": row.get("model", ""),
             "scenario": row.get("scenario", ""),
+            "forcing": row.get("forcing", ""),
+            "type": row.get("type", ""),
             "parameter_set": row.get("parameter_set", ""),
         })
 
@@ -65,8 +74,8 @@ for _, row in df.iterrows():
 # --------------------------------------------------
 out = pd.DataFrame(expanded)
 
-Path(output_csv).parent.mkdir(parents=True, exist_ok=True)
-out.to_csv(output_csv, index=False)
+csv_text = out.to_csv(index=False)
+write_text_if_changed(Path(output_csv), csv_text)
 
 print(out.head())
 print(f"\nTOTAL RUNS: {len(out)}")
