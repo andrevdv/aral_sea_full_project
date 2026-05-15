@@ -36,7 +36,7 @@ paths:
 forcing:
   basin: "AralSea_basin"
 
-  models: ["MIROC6", "EC-Earth3", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0", "NorESM2-LM"]
+  models: ["MIROC6", "CanESM5", "FGOALS-g3", "MPI-ESM1-2-HR", "MRI-ESM2-0", "NorESM2-LM"] #EC-Earth3 is not working
   ensemble: ["r1i1p1f1"]
   scenarios: ["ssp126", "ssp245", "ssp370", "ssp585"]
   ewatercycle_tail: "work/diagnostic/script"
@@ -131,19 +131,19 @@ active_time_blocks:
 parameter_sets:
 
   uncalibrated:
-    path: "data/clonemaps/uncalibrated.ini"
+    path: "data/ini_file/uncalibrated.ini"
     description: "Raw baseline model without calibration"
 
   overall_calibrated:
-    path: "data/clonemaps/calibration_overall.ini"
+    path: "data/ini_file/calibration_overall.ini"
     description: "General calibration against all discharge observations"
 
   amu_calibrated:
-    path: "data/clonemaps/calibrated_amu_inflow.ini"
+    path: "data/ini_file/calibrated_amu_inflow.ini"
     description: "Calibration focused on Amu Darya inflow"
 
   syr_calibrated:
-    path: "data/clonemaps/calibrated_syr_inflow.ini"
+    path: "data/ini_file/calibrated_syr_inflow.ini"
     description: "Calibration focused on Syr Darya inflow"
 
 
