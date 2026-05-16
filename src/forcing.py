@@ -659,7 +659,8 @@ def _regrid_cmip_forcing_to_era5(
     # FIX: filter out all Feb 29 dates  during regridding to ensure the forcing
     # data is compatible with the model's noleap calendar constraint. This removes
     # approximately 1 day per 4 years of data (negligible impact on climatology).
-    # TODO: implement a better solution? also check ERA5 data for leap days (should not have any?)
+    # TODO: implement a better solution, some kind of .calender fix?
+    # TODO: also check ERA5 data for leap days (should not have any?)
     ds_cmip = ds_cmip.sel(time=~((ds_cmip.time.dt.month == 2) & (ds_cmip.time.dt.day == 29)))
 
     # Basic grid sanity check
