@@ -650,6 +650,18 @@ def _regrid_cmip_forcing_to_era5(
     ds_cmip = xr.load_dataset(cmip_path)
     ds_era5 = xr.load_dataset(era5_path)
 
+    # Remove Feb 29 dates from CMIP data to match noleap calendar requirement
+    # =========================================================================
+    # The PCR-GLOBWB model is configured with a noleap calendar and cannot handle
+    # leap day dates. CMIP6 data from leap years includes Feb 29 (valid only in leap
+    # years), which causes the model to crash during simulation with:
+    #   "invalid day number provided in cftime.DatetimeNoLeap(YYYY, 2, 29, ...)"
+    # FIX: filter out all Feb 29 dates  during regridding to ensure the forcing
+    # data is compatible with the model's noleap calendar constraint. This removes
+    # approximately 1 day per 4 years of data (negligible impact on climatology).
+    # TODO: implement a better solution? also check ERA5 data for leap days (should not have any?)
+    ds_cmip = ds_cmip.sel(time=~((ds_cmip.time.dt.month == 2) & (ds_cmip.time.dt.day == 29)))
+
     # Basic grid sanity check
     for dim in ("lat", "lon"):
         if dim not in ds_cmip.dims or dim not in ds_era5.dims:
