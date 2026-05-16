@@ -11,6 +11,7 @@ from pathlib import Path
 
 import cma
 import ewatercycle.models
+import ewatercycle.parameter_sets
 import numpy as np
 import pandas as pd
 import xarray as xr
@@ -918,7 +919,16 @@ def run_hbv_simulations(
 
 
 
-def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, output_dir, ini_files_dir=None):
+def simulate_PCRGLOBWB_experiment(
+    forcing_path,
+    ini_name,
+    start_date,
+    end_date,
+    output_dir,
+    ini_files_dir=None,
+    container_image_path=None,
+    tqdm_file=None,
+):
     """Run the PCR-GLOBWB hydrological model for a given forcing and configuration.
 
     This function sets up and executes a PCR-GLOBWB simulation using the
@@ -942,6 +952,9 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
     ini_files_dir : str or Path, optional
         Path to the directory containing INI files. If None, defaults to
         /home/avandervee3/complete_pcrglob_run/data/ini_file for backward compatibility.
+    tqdm_file : file-like object, optional
+        Stream to write tqdm progress output to. If omitted, tqdm uses its default
+        output stream.
 
     Returns:
     -------
@@ -967,7 +980,12 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
     else:
         ini_files_dir = Path(ini_files_dir)
 
-    bmi_image = ContainerImage("/home/avandervee3/ewatercycle_pcr_25mar.sif")
+    if container_image_path is None:
+        container_image_path = Path("/home/avandervee3/ewatercycle_pcr_25mar.sif")
+    else:
+        container_image_path = Path(container_image_path)
+
+    bmi_image = ContainerImage(container_image_path)
 
     # Convert ISO 8601 strings to datetime objects
     start_time = datetime.strptime(start_date, "%Y-%m-%dT%H:%M:%SZ")
@@ -977,7 +995,12 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
     delta = end_time - start_time
     number_of_days = delta.days
 
-    pbar = classic_tqdm(total=number_of_days, desc="Initializing model", mininterval=1.0)
+    pbar = classic_tqdm(
+        total=number_of_days,
+        desc="Initializing model",
+        mininterval=1.0,
+        file=tqdm_file,
+    )
 
     # can be hardcoded, location of all the pcr-glob data on ewatercycle
     pcr_glob_directory = PCR_GLOBAL_PARAMS
@@ -1011,7 +1034,7 @@ def simulate_PCRGLOBWB_experiment(forcing_path, ini_name, start_date, end_date, 
         pbar.update(1)
 
     pbar.close()
-    tqdm.write("Model run finished!")
+    classic_tqdm.write("Model run finished!", file=tqdm_file)
 
     model.finalize()
 
