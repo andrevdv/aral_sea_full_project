@@ -1,6 +1,9 @@
 from pathlib import Path
-import yaml
-import pandas as pd
+
+import pandas as pd  # pyright: ignore[reportMissingTypeStubs]
+import yaml  # pyright: ignore[reportMissingTypeStubs]
+
+from src.pcrglobwb_workflow import iter_expanded_rows
 
 
 # --------------------------------------------------
@@ -18,56 +21,12 @@ def write_text_if_changed(path: Path, content: str) -> None:
     path.write_text(content, encoding="utf-8")
 
 # --------------------------------------------------
-# Load config
+# Load config and expand rows via shared helpers
 # --------------------------------------------------
-with open(config_yaml) as f:
-    config = yaml.safe_load(f)
+with open(config_yaml, encoding="utf-8") as config_file:
+    config = yaml.safe_load(config_file)
 
-time_blocks = config["time_blocks"]
-active_groups = config["active_time_blocks"]
-
-# --------------------------------------------------
-# Load experiment planner
-# --------------------------------------------------
-df = pd.read_csv(planner_csv, sep=";", encoding="utf-8-sig")
-
-expanded = []
-
-
-# --------------------------------------------------
-# Expand rows
-# --------------------------------------------------
-for _, row in df.iterrows():
-    run_id = row["run_id"]
-    group = row["time_group"]
-
-    if group not in active_groups:
-        raise ValueError(f"Unknown time_group: {group}")
-
-    blocks = active_groups[group]
-
-    for i, block in enumerate(blocks):
-
-        if block not in time_blocks:
-            raise ValueError(f"Unknown time_block: {block}")
-
-        tb = time_blocks[block]
-
-        job_id = f"{run_id}_{i:03d}"
-
-        expanded.append({
-            "job_id": job_id,
-            "run_id": row["run_id"],
-            "group": group,
-            "time_block": block,
-            "start_date": tb["start_date"],
-            "end_date": tb["end_date"],
-            "model": row.get("model", ""),
-            "scenario": row.get("scenario", ""),
-            "forcing": row.get("forcing", ""),
-            "type": row.get("type", ""),
-            "parameter_set": row.get("parameter_set", ""),
-        })
+expanded = list(iter_expanded_rows(config, Path(planner_csv)))
 
 # --------------------------------------------------
 # Write expanded table
