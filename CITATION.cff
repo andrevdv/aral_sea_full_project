@@ -7,7 +7,12 @@ authors:
     given-names: "A.B."
     orcid: "https://orcid.org/0009-0009-5611-8888"
     affiliation: "Delft University of Technology"
-
+abstract: >
+  This Snakemake workflow is for modelling Aral Sea water
+  levels under historical and future climate scenarios. This
+  is developed as part of a Master's Thesis at the Delft
+  University of Technology.
+  
 keywords:
   - snakemake
   - hydrology
@@ -18,26 +23,15 @@ keywords:
   - central-asia
   - ewatercycle
 
-# ## license -  fix this later
-
-# - my license (MIT?)
-# - eWaterycle
-# - ERA5
-# - CMIP
-# - PCR GLOBWB
-# - GRDC
-# - Dahiti/INTAS
-
-
 
 preferred-citation:
   type: thesis
-  title: "Modeling the effects of climate change and human activities on the Aral Sea in a reproducible framework"
+  title: >-
+    Modeling the effects of climate change and human activities on the Aral Sea
+    in a reproducible framework
   authors:
-    - family-names: "van der Veen"
-      given-names: "A.B."
+    - family-names: van der Veen
+      given-names: A.B.
   institution:
     name: "Delft University of Technology"
-    department: "Faculty of Civil Engineering and Geosciences"
   year: 2026
-  thesis-type: "Master's Thesis"
