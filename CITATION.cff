@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+title: "Aral Sea Level Modelling Workflow"
+message: "If you use this workflow, please cite it as below."
+type: software
+authors:
+  - family-names: "van der Veen"
+    given-names: "A.B."
+    orcid: "https://orcid.org/0009-0009-5611-8888"
+    affiliation: "Delft University of Technology"
+
+keywords:
+  - snakemake
+  - hydrology
+  - aral-sea
+  - pcr-globwb
+  - cmip6
+  - climate-change
+  - central-asia
+  - ewatercycle
+
+# ## license -  fix this later
+
+# - my license (MIT?)
+# - eWaterycle
+# - ERA5
+# - CMIP
+# - PCR GLOBWB
+# - GRDC
+# - Dahiti/INTAS
+
+
+
+preferred-citation:
+  type: thesis
+  title: "Modeling the effects of climate change and human activities on the Aral Sea in a reproducible framework"
+  authors:
+    - family-names: "van der Veen"
+      given-names: "A.B."
+  institution:
+    name: "Delft University of Technology"
+    department: "Faculty of Civil Engineering and Geosciences"
+  year: 2026
+  thesis-type: "Master's Thesis"
