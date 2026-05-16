@@ -42,6 +42,10 @@ forcing:
   ewatercycle_tail: "work/diagnostic/script"
 
 
+runtime:
+  pcrglobwb_container_image: "/home/avandervee3/ewatercycle_pcr_25mar.sif"
+
+
 
 
 simulation_period:
