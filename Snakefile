@@ -1,6 +1,5 @@
 # Snakefile
 from pathlib import Path
-import csv
 import sys
 
 configfile: "config_aral.yaml"
@@ -12,7 +11,13 @@ configfile: "config_aral.yaml"
 PROJECT_ROOT = Path(config["paths"]["project_root"])
 FORCING_DIR  = PROJECT_ROOT / "data" / "forcing"
 SHAPEFILES   = PROJECT_ROOT / config["paths"]["shapefiles_dir"].lstrip("./")
-EWATERCYCLE_TAIL = Path(config["forcing"]["ewatercycle_tail"])
+PLANNER_CSV = PROJECT_ROOT / "config" / "experiment_planner.csv"
+PRECHECK_FLAG = PROJECT_ROOT / "results" / "preflight" / "generated.flag"
+
+from src.pcrglobwb_workflow import (
+    collect_preflight_errors,
+    expand_pcrglob_job_ids,
+)
 
 # ── Dimensions ────────────────────────────────────────
 BASIN     = config["forcing"]["basin"]
@@ -29,58 +34,15 @@ ERA5_START = config["simulation_period"]["era5_start_date"][:4]
 ERA5_END   = config["simulation_period"]["era5_end_date"][:4]
 
 
-# ── Preflight ─────────────────────────────────────────
-
-def preflight_checks():
-    errors = []
-    for name, path in [
-        ("project root", PROJECT_ROOT),
-        ("shapefiles",   SHAPEFILES),
-    ]:
-
-        if not Path(path).exists():
-            errors.append(f"{name} not found: {path}")
-    if errors:
-        print("\nPreflight failed:")
-        for e in errors: print(e)
-        sys.exit(1)
-
-preflight_checks()
+PRECHECK_ERRORS = collect_preflight_errors(config, PLANNER_CSV)
+if PRECHECK_ERRORS:
+    print("\nPreflight failed:")
+    for error in PRECHECK_ERRORS:
+        print(error)
+    sys.exit(1)
 
 
-def iter_expanded_pcrglob_runs():
-    planner_path = PROJECT_ROOT / "config" / "experiment_planner.csv"
-    with open(planner_path, newline="", encoding="utf-8-sig") as planner_file:
-        planner_rows = csv.DictReader(planner_file, delimiter=";")
-        for planner_row in planner_rows:
-            time_group = planner_row["time_group"]
-            if time_group not in config["active_time_blocks"]:
-                raise ValueError(f"Unknown time_group in experiment planner: {time_group}")
-
-            for index, time_block in enumerate(config["active_time_blocks"][time_group]):
-                if time_block not in config["time_blocks"]:
-                    raise ValueError(f"Unknown time_block in config: {time_block}")
-
-                yield {
-                    "job_id": f'{planner_row["run_id"]}_{index:03d}',
-                    "run_id": planner_row["run_id"],
-                    "group": time_group,
-                    "time_block": time_block,
-                    "start_date": config["time_blocks"][time_block]["start_date"],
-                    "end_date": config["time_blocks"][time_block]["end_date"],
-                    "model": planner_row["model"],
-                    "scenario": planner_row["scenario"],
-                    "forcing": planner_row["forcing"],
-                    "type": planner_row["type"],
-                    "parameter_set": planner_row["parameter_set"],
-                }
-
-
-def expand_pcrglob_job_ids():
-    return [row["job_id"] for row in iter_expanded_pcrglob_runs()]
-
-
-PCRGLOB_JOB_IDS = expand_pcrglob_job_ids()
+PCRGLOB_JOB_IDS = expand_pcrglob_job_ids(config, PLANNER_CSV)
 
 
 # ── Targets ───────────────────────────────────────────
@@ -141,15 +103,8 @@ rule all:
         # -------------------------
         # Experiment planning output
         # -------------------------
-        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "expanded_runs.csv"),
-
-        # -------------------------
-        # PCR-GLOBWB experiments (model outputs stored under results/runs/pcrglobwb)
-        # -------------------------
-        expand(
-            str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag"),
-            job_id=PCRGLOB_JOB_IDS,
-        )
+        str(PRECHECK_FLAG),
+        str(PROJECT_ROOT / "results" / "runs" / "expanded_runs.csv"),
 
 # ── Rules ─────────────────────────────────────────────
 
@@ -304,11 +259,33 @@ rule expand_runs:
         planner="config/experiment_planner.csv",
         yaml="config_aral.yaml"
     output:
-        expanded_runs=str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "expanded_runs.csv")
+        expanded_runs=str(PROJECT_ROOT / "results" / "runs" / "expanded_runs.csv")
     log:
         "logs/planning/expand_runs.log"
     script:
         "workflow/step2_pcrglobwb/expand_runs.py"
+
+
+rule preflight:
+    output:
+        flag = str(PRECHECK_FLAG)
+    log:
+        str(PROJECT_ROOT / "logs" / "preflight.log")
+    run:
+        errors = collect_preflight_errors(config, PLANNER_CSV)
+        if errors:
+            raise ValueError("\n".join(["Preflight failed:", *errors]))
+        Path(output.flag).parent.mkdir(parents=True, exist_ok=True)
+        Path(output.flag).touch()
+
+
+rule pcrglobwb_experiments:
+    input:
+        str(PRECHECK_FLAG),
+        expand(
+            str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag"),
+            job_id=PCRGLOB_JOB_IDS,
+        )
 
 
 rule prepare_pcrglobwb_run:
@@ -324,15 +301,25 @@ rule prepare_pcrglobwb_run:
 
 rule run_pcrglobwb_experiment:
     input:
-        run_config = rules.prepare_pcrglobwb_run.output.run_config,
+        preflight = str(PRECHECK_FLAG),
+        planner = "config/experiment_planner.csv",
+        yaml = "config_aral.yaml",
     output:
         flag =  str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag")
     log:
-        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "{job_id}.log")
+        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "tqdm.log")
+    shell:
+        "python workflow/step2_pcrglobwb/run_pcrglob_experiment.py --planner-csv {input.planner} --config-yaml {input.yaml} --job-id {wildcards.job_id} --output-flag {output.flag} --log-file {log[0]}"
+
+rule extract_pcrglobwb_outputs:
+    input:
+        flag = str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag")
+    output:
+        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "extracted.flag")
+    log:
+        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "{job_id}_extract.log")
     script:
-        "workflow/step2_pcrglobwb/run_pcrglob_experiment.py"
-
-
+        "workflow/step2_pcrglobwb/extract_pcrglob_outputs.py"
 
 
 

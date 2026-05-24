@@ -155,9 +155,311 @@ parameter_sets:
 
 
 
+# =========================
+# station information - used in building discharge observation dataset and in plotting
+# =========================
 
-
-
+discharge_stations:
+  - name: 'Tyumen-aryk'
+    station_key: 'Tyumen-aryk'
+    grdc_id: '2316200'
+    lat: 43.95
+    lon: 67.05
+    weight: 467.974358
+  - name: 'Kazalinsk'
+    station_key: 'Kazalinsk'
+    grdc_id: '2316201'
+    lat: 45.7
+    lon: 62.12
+    weight: 230
+  - name: 'Karaozek'
+    station_key: 'Karaozek'
+    grdc_id: '2316204'
+    lat: 44.96
+    lon: 65.29
+    weight: 230
+  - name: 'Kal'
+    station_key: 'Kal'
+    grdc_id: '2416202'
+    lat: 40.875
+    lon: 71.45
+    weight: 300.000000
+  - name: 'Dazgon'
+    station_key: 'Dazgon'
+    grdc_id: '2416660'
+    lat: 39.792
+    lon: 69.29
+    weight: 26.683328
+  - name: 'Andarhan'
+    station_key: 'Andarhan'
+    grdc_id: '2416665'
+    lat: 39.96
+    lon: 69.875
+    weight: 41.713307
+  - name: 'Paulgan'
+    station_key: 'Paulgan'
+    grdc_id: '2416670'
+    lat: 40.125
+    lon: 71.71
+    weight: 36.055513
+  - name: 'Uch-korgon'
+    station_key: 'Uch-korgon'
+    grdc_id: '2416680'
+    lat: 40.29
+    lon: 72.04
+    weight: 47.116876
+  - name: 'Mikhailovskoe'
+    station_key: 'Mikhailovskoe'
+    grdc_id: '2416690'
+    lat: 41.125
+    lon: 73.21
+    weight: 31.780497
+  - name: 'Aktash'
+    station_key: 'Aktash'
+    grdc_id: '2416710'
+    lat: 40.542
+    lon: 73.875
+    weight: 30.116441
+  - name: 'Salamalik'
+    station_key: 'Salamalik'
+    grdc_id: '2416720'
+    lat: 40.79
+    lon: 73.625
+    weight: 34.351128
+  - name: 'Gulcha'
+    station_key: 'Gulcha'
+    grdc_id: '2416730'
+    lat: 40.29
+    lon: 73.46
+    weight: 52.345009
+  - name: 'Ust. Djumgol'
+    station_key: 'Ust. Djumgol'
+    grdc_id: '2416750'
+    lat: 41.79
+    lon: 74.29
+    weight: 72.732386
+  - name: 'Chalma'
+    station_key: 'Chalma'
+    grdc_id: '2416760'
+    lat: 40.625
+    lon: 73.625
+    weight: 61.967734
+  - name: 'Charvak'
+    station_key: 'Charvak'
+    grdc_id: '2416770'
+    lat: 41.21
+    lon: 72.96
+    weight: 36.055513
+  - name: 'Changet'
+    station_key: 'Changet'
+    grdc_id: '2416780'
+    lat: 40.875
+    lon: 73.125
+    weight: 19.519221
+  - name: 'Tuleken'
+    station_key: 'Tuleken'
+    grdc_id: '2416800'
+    lat: 40.375
+    lon: 72.875
+    weight: 49.295030
+  - name: 'Ust. Karakol'
+    station_key: 'Ust. Karakol'
+    grdc_id: '2416810'
+    lat: 40.375
+    lon: 72.625
+    weight: 40.987803
+  - name: 'Ust. Kairagach'
+    station_key: 'Ust. Kairagach'
+    grdc_id: '2416840'
+    lat: 41.125
+    lon: 74.71
+    weight: 23.021729
+  - name: 'Uch-kurgan'
+    station_key: 'Uch-kurgan'
+    grdc_id: '2416850'
+    lat: 41.125
+    lon: 72.125
+    weight: 241.660919
+  - name: 'Ust. Kekirim'
+    station_key: 'Ust. Kekirim'
+    grdc_id: '2416860'
+    lat: 41.45
+    lon: 73.96
+    weight: 186.010752
+  - name: 'Donguztay'
+    station_key: 'Donguztay'
+    grdc_id: '2416880'
+    lat: 40.875
+    lon: 73.54
+    weight: 12.884099
+  - name: 'Naryn'
+    station_key: 'Naryn'
+    grdc_id: '2416890'
+    lat: 41.45
+    lon: 75.95
+    weight: 102.469508
+  - name: 'Ust. Tostu'
+    station_key: 'Ust. Tostu'
+    grdc_id: '2416900'
+    lat: 41.625
+    lon: 71.71
+    weight: 19.131126
+  - name: 'Tash-kurgan'
+    station_key: 'Tash-kurgan'
+    grdc_id: '2516590'
+    lat: 40.21
+    lon: 70.54
+    weight: 39.496835
+  - name: 'Dupuli'
+    station_key: 'Dupuli'
+    grdc_id: '2517450'
+    lat: 39.54
+    lon: 67.79
+    weight: 100.995049
+  - name: 'Alibegi'
+    station_key: 'Alibegi'
+    grdc_id: '2517470'
+    lat: 38.625
+    lon: 68.54
+    weight: 19.026298
+  - name: 'Karatag'
+    station_key: 'Karatag'
+    grdc_id: '2517475'
+    lat: 38.625
+    lon: 68.29
+    weight: 26.153394
+  - name: 'Sudgina'
+    station_key: 'Sudgina'
+    grdc_id: '2517480'
+    lat: 39.46
+    lon: 67.71
+    weight: 33.166248
+  - name: 'Dagana-ata'
+    station_key: 'Dagana-ata'
+    grdc_id: '2517550'
+    lat: 38.792
+    lon: 68.792
+    weight: 35.637059
+  - name: 'Chinor'
+    station_key: 'Chinor'
+    grdc_id: '2517600'
+    lat: 38.54
+    lon: 69.04
+    weight: 55.136195
+  - name: 'Tartki'
+    station_key: 'Tartki'
+    grdc_id: '2517610'
+    lat: 37.625
+    lon: 68.125
+    weight: 98.893883
+  - name: 'Khorog'
+    station_key: 'Khorog'
+    grdc_id: '2517700'
+    lat: 37.54
+    lon: 71.54
+    weight: 117.046999
+  - name: 'Khabost'
+    station_key: 'Khabost'
+    grdc_id: '2517710'
+    lat: 37.46
+    lon: 71.625
+    weight: 64.652920
+  - name: 'Barchadiv'
+    station_key: 'Barchadiv'
+    grdc_id: '2517820'
+    lat: 38.29
+    lon: 72.46
+    weight: 129.228480
+  - name: 'Ustie'
+    station_key: 'Ustie'
+    grdc_id: '2517840'
+    lat: 38.33
+    lon: 72.47
+    weight: 67.082039
+  - name: 'Motravn'
+    station_key: 'Motravn'
+    grdc_id: '2517850'
+    lat: 38.21
+    lon: 71.45
+    weight: 44.045431
+  - name: 'Tutkaul'
+    station_key: 'Tutkaul'
+    grdc_id: '2517900'
+    lat: 38.35
+    lon: 69.3
+    weight: 176.635217
+  - name: 'Garm'
+    station_key: 'Garm'
+    grdc_id: '2517920'
+    lat: 39.04
+    lon: 70.29
+    weight: 141.421356
+  - name: 'Kerki'
+    station_key: 'Kerki'
+    grdc_id: '2617110'
+    lat: 37.80
+    lon: 65.28
+    weight: 555.877684
+  - name: 'Bekabad'
+    station_key: 'Bekabad'
+    grdc_id: '2816203'
+    lat: 40.21
+    lon: 69.29
+    weight: 376.828874
+  - name: 'Hodjikent'
+    station_key: 'Hodjikent'
+    grdc_id: '2816550'
+    lat: 41.625
+    lon: 69.96
+    weight: 104.403065
+  - name: 'Sarykanda'
+    station_key: 'Sarykanda'
+    grdc_id: '2816650'
+    lat: 40.125
+    lon: 71.125
+    weight: 49.799598
+  - name: 'Chatly'
+    station_key: 'Chatly'
+    grdc_id: '2817100'
+    lat: 42.2
+    lon: 60.21
+    weight: 670.820393
+  - name: 'Chirakchi'
+    station_key: 'Chirakchi'
+    grdc_id: '2817300'
+    lat: 39.04
+    lon: 66.46
+    weight: 67.453688
+  - name: 'Varganza'
+    station_key: 'Varganza'
+    grdc_id: '2817310'
+    lat: 38.875
+    lon: 67.125
+    weight: 22.605309
+  - name: 'Manguzar'
+    station_key: 'Manguzar'
+    grdc_id: '2817400'
+    lat: 37.29
+    lon: 67.45
+    weight: 116.189500
+  - name: 'King Guzar'
+    station_key: 'King Guzar'
+    grdc_id: '2817410'
+    lat: 38.45
+    lon: 67.875
+    weight: 30.016662
+  - name: 'Khazarnova'
+    station_key: 'Khazarnova'
+    grdc_id: '2817460'
+    lat: 39.04
+    lon: 67.21
+    weight: 29.068884
+  - name: 'Obizarang'
+    station_key: 'Obizarang'
+    grdc_id: '2817630'
+    lat: 38.292
+    lon: 67.96
+    weight: 51.283526
 
 
 
