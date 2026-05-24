@@ -17,6 +17,7 @@ import xesmf as xe
 from tempfile import NamedTemporaryFile
 import os
 import numpy as np
+import cftime
 
 from .constants import DEFAULT_CMIP6_MODELS
 from .paths import (
@@ -42,6 +43,79 @@ from .utils import get_integer_multiple_bounds
 #     * CMIP historical
 #     * CMIP future (SSP scenarios)
 # ===========================================================================
+
+
+# def normalize_noleap_calendar(ds: xr.Dataset) -> xr.Dataset:
+#     """Remove leap days and normalize the time axis to a 365-day calendar."""
+#     if "time" not in ds.coords:
+#         return ds
+
+#     ds = ds.sel(time=~((ds.time.dt.month == 2) & (ds.time.dt.day == 29)))
+#     if getattr(ds.time.dt, "calendar", None) != "365_day":
+#         ds = ds.convert_calendar("365_day", align_on="date")
+
+#     time_encoding = dict(ds.time.encoding)
+#     time_encoding["calendar"] = "365_day"
+#     ds["time"].encoding = time_encoding
+#     return ds
+
+# def normalize_noleap_calendar(ds: xr.Dataset) -> xr.Dataset:
+#     """
+#     For 365_day datasets: drop any Feb 29 dates and rebuild the time axis
+#     using cftime.DatetimeNoLeap objects so offsets are consistent with the
+#     calendar attribute. No-op for all other calendars.
+#     """
+#     if "time" not in ds.coords:
+#         return ds
+#     calendar = getattr(ds.time.dt, "calendar", None)
+
+#     print(f"DEBUG normalize_noleap_calendar: calendar={calendar}, time dtype={ds.time.dtype}")
+#     if calendar not in ("365_day", "noleap"):
+#         return ds
+#     # Drop Feb 29 dates if any slipped through
+#     ds = ds.sel(time=~((ds.time.dt.month == 2) & (ds.time.dt.day == 29)))
+
+#     # Rebuild time axis as proper DatetimeNoLeap objects from scratch
+#     new_times = np.array([
+#         cftime.DatetimeNoLeap(int(t.dt.year), int(t.dt.month), int(t.dt.day))
+#         for t in ds.time
+#     ])
+#     ds = ds.assign_coords(time=new_times)
+
+#     ds["time"].encoding = {
+#         "calendar": "365_day",
+#         "units": "days since 1850-01-01",
+#         "dtype": "float64",
+#     }
+#     return ds
+
+def normalize_noleap_calendar(ds: xr.Dataset) -> xr.Dataset:
+    """
+    Convert 365_day/noleap calendar to standard Gregorian.
+    Feb 29 values in data variables are forward-filled from Feb 28.
+    """
+    if "time" not in ds.coords:
+        return ds
+
+    calendar = getattr(ds.time.dt, "calendar", None)
+    if calendar not in ("365_day", "noleap"):
+        return ds
+
+    # Convert to standard calendar - Feb 29s become NaN
+    ds = ds.convert_calendar("standard", align_on="date", missing=float("nan"))
+
+    # Forward-fill only numeric data variables (tas, pr, etc), not bounds
+    for var in ds.data_vars:
+        if ds[var].dtype.kind in ('f', 'i'):  # float or int types only
+            if "time" in ds[var].dims:
+                ds[var] = ds[var].ffill(dim='time')
+
+    ds["time"].encoding = {
+        "calendar": "standard",
+        "units": "days since 1850-01-01",
+        "dtype": "float64",
+    }
+    return ds
 
 
 def generate_lumped_ERA5_forcing(shape_name: str, start: str, end: str):
@@ -647,21 +721,11 @@ def _regrid_cmip_forcing_to_era5(
     cmip_path = Path(cmip_path)
     era5_path = Path(era5_path)
 
-    ds_cmip = xr.load_dataset(cmip_path)
+    ds_cmip = xr.load_dataset(cmip_path, use_cftime=True)
     ds_era5 = xr.load_dataset(era5_path)
 
-    # Remove Feb 29 dates from CMIP data to match noleap calendar requirement
-    # =========================================================================
-    # The PCR-GLOBWB model is configured with a noleap calendar and cannot handle
-    # leap day dates. CMIP6 data from leap years includes Feb 29 (valid only in leap
-    # years), which causes the model to crash during simulation with:
-    #   "invalid day number provided in cftime.DatetimeNoLeap(YYYY, 2, 29, ...)"
-    # FIX: filter out all Feb 29 dates  during regridding to ensure the forcing
-    # data is compatible with the model's noleap calendar constraint. This removes
-    # approximately 1 day per 4 years of data (negligible impact on climatology).
-    # TODO: implement a better solution, some kind of .calender fix?
-    # TODO: also check ERA5 data for leap days (should not have any?)
-    ds_cmip = ds_cmip.sel(time=~((ds_cmip.time.dt.month == 2) & (ds_cmip.time.dt.day == 29)))
+    # Remove Feb 29 dates from CMIP data to match noleap calendar requirement.
+    ds_cmip = normalize_noleap_calendar(ds_cmip)
 
     # Basic grid sanity check
     for dim in ("lat", "lon"):
@@ -689,6 +753,8 @@ def _regrid_cmip_forcing_to_era5(
 
     # Apply regridding
     ds_out = regridder(ds_cmip)
+
+    #ds_out = normalize_noleap_calendar(ds_out)
 
     # Preserve metadata
     ds_out.attrs.update(ds_cmip.attrs)
