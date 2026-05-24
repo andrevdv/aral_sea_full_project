@@ -54,6 +54,69 @@ def expand_pcrglob_job_ids(config: dict, planner_csv: Path) -> list[str]:
     return [row["job_id"] for row in iter_expanded_rows(config, planner_csv)]
 
 
+def infer_station_era(row: dict) -> str:
+    if row["group"] == "cmip_fut":
+        return "future"
+    return "historical"
+
+
+def slugify_path_token(value: str) -> str:
+    return str(value).strip().replace(" ", "_").replace("/", "_").replace("\\", "_")
+
+
+def iter_station_output_groups(config: dict, planner_csv: Path):
+    grouped_rows: dict[tuple[str, str, str, str, str, str], dict] = {}
+
+    for row in iter_expanded_rows(config, planner_csv):
+        era = infer_station_era(row)
+        key = (row["run_id"], row["model"], row["scenario"], row["type"], row["parameter_set"], era)
+
+        group = grouped_rows.get(key)
+        if group is None:
+            group = {
+                "run_id": row["run_id"],
+                "model": row["model"],
+                "scenario": row["scenario"],
+                "type": row["type"],
+                "parameter_set": row["parameter_set"],
+                "era": era,
+                "job_ids": [],
+                "time_blocks": [],
+                "start_dates": [],
+                "end_dates": [],
+            }
+            grouped_rows[key] = group
+
+        group["job_ids"].append(row["job_id"])
+        group["time_blocks"].append(row["time_block"])
+        group["start_dates"].append(row["start_date"])
+        group["end_dates"].append(row["end_date"])
+
+    return list(grouped_rows.values())
+
+
+def station_job_output_path(project_root: Path, job_id: str) -> Path:
+    return project_root / "results" / "runs" / "pcrglobwb" / job_id / "station_discharge.nc"
+
+
+def station_merged_output_path(project_root: Path, group: dict) -> Path:
+    filename = "__".join(
+        (
+            f"run_id={slugify_path_token(group['run_id'])}",
+            f"model={slugify_path_token(group['model'])}",
+            f"scenario={slugify_path_token(group['scenario'])}",
+            f"type={slugify_path_token(group['type'])}",
+            f"parameter_set={slugify_path_token(group['parameter_set'])}",
+            f"era={slugify_path_token(group['era'])}",
+        )
+    )
+    return project_root / "results" / "runs" / "pcrglobwb" / "stations" / "merged" / group["run_id"] / f"{filename}.nc"
+
+
+def station_final_output_path(project_root: Path, era: str) -> Path:
+    return project_root / "results" / "runs" / "pcrglobwb" / "stations" / "final" / f"{slugify_path_token(era)}.nc"
+
+
 def resolve_forcing_flag(row: dict, config: dict) -> str:
     ensemble = config["forcing"]["ensemble"][0]
     project_root = Path(config["paths"]["project_root"])

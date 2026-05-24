@@ -17,6 +17,9 @@ PRECHECK_FLAG = PROJECT_ROOT / "results" / "preflight" / "generated.flag"
 from src.pcrglobwb_workflow import (
     collect_preflight_errors,
     expand_pcrglob_job_ids,
+    iter_station_output_groups,
+    station_merged_output_path,
+    station_final_output_path,
 )
 
 # ── Dimensions ────────────────────────────────────────
@@ -43,6 +46,16 @@ if PRECHECK_ERRORS:
 
 
 PCRGLOB_JOB_IDS = expand_pcrglob_job_ids(config, PLANNER_CSV)
+STATION_OUTPUT_GROUPS = list(iter_station_output_groups(config, PLANNER_CSV))
+STATION_MERGED_OUTPUTS = [
+    str(station_merged_output_path(PROJECT_ROOT, group))
+    for group in STATION_OUTPUT_GROUPS
+]
+
+STATION_FINAL_OUTPUTS = [
+    str(station_final_output_path(PROJECT_ROOT, "historical")),
+    str(station_final_output_path(PROJECT_ROOT, "future")),
+]
 
 
 # ── Targets ───────────────────────────────────────────
@@ -105,6 +118,9 @@ rule all:
         # -------------------------
         str(PRECHECK_FLAG),
         str(PROJECT_ROOT / "results" / "runs" / "expanded_runs.csv"),
+        *STATION_FINAL_OUTPUTS,
+
+         # -------------------------
 
 # ── Rules ─────────────────────────────────────────────
 
@@ -315,11 +331,35 @@ rule extract_pcrglobwb_outputs:
     input:
         flag = str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "generated.flag")
     output:
-        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "extracted.flag")
+        station_nc = str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "station_discharge.nc"),
+        flag = str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "{job_id}" / "extracted.flag")
     log:
         str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "{job_id}_extract.log")
     script:
         "workflow/step2_pcrglobwb/extract_pcrglob_outputs.py"
+
+rule merge_pcrglobwb_station_outputs:
+    input:
+        expanded_runs = str(PROJECT_ROOT / "results" / "runs" / "expanded_runs.csv"),
+        yaml = "config_aral.yaml",
+    output:
+        str(PROJECT_ROOT / "results" / "runs" / "pcrglobwb" / "stations" / "merged" / "{run_id}" / "run_id={run_id}__model={model}__scenario={scenario}__type={type}__parameter_set={parameter_set}__era={era}.nc")
+    log:
+        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "run_id={run_id}__model={model}__scenario={scenario}__type={type}__parameter_set={parameter_set}__era={era}_merge.log")
+    script:
+        "workflow/step2_pcrglobwb/merge_pcrglob_outputs.py"
+
+rule aggregate_pcrglobwb_station_outputs:
+    input:
+        station_files = STATION_MERGED_OUTPUTS,
+        yaml = "config_aral.yaml",
+    output:
+        historical = str(station_final_output_path(PROJECT_ROOT, "historical")),
+        future = str(station_final_output_path(PROJECT_ROOT, "future")),
+    log:
+        str(PROJECT_ROOT / "logs" / "model_runs" / "pcrglobwb" / "aggregate_station_outputs.log")
+    script:
+        "workflow/step2_pcrglobwb/aggregate_pcrglob_outputs.py"
 
 
 
