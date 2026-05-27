@@ -237,8 +237,12 @@ __marimo__/
 
 # project outputs
 outputs/
+
 logs/
-data/
+
+data/*
+!data/README.md
+
 results/
 config/
 .snakemake/

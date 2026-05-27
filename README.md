@@ -21,9 +21,12 @@ In short:
 - edit .yaml for paths
 - experiment planner 
 - list some snakemake commands
-- jupyter notebooks
+- Jupyter notebooks are available in the [notebooks](./notebooks/) folder.
 - 
 
+- [Input data folder](input_data/)
+- [Example dataset](input_data/sample_test.csv)
+- [Data description](input_data/README.md)
 
 ## Input data
 - short description, refer to data.md in data folder?
