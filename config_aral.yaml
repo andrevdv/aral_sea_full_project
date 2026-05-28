@@ -462,6 +462,35 @@ discharge_stations:
     weight: 51.283526
 
 
+# =========================
+# Karakum Canal Experiment
+# =========================
+karakum_experiment:
+  removal_scaling_factor: 0.6
+  karakum_canal_csv: "data/karakum/KarakumCanal.csv"
+  karalkum_ini: "./data/ini_file/calibrated_amu_inflow_karakum_experiment.ini" #parameter_set_ini
+  era5_forcing_dir: "/data/volume/forcing/pcrglobwb_input_aral_sea/ERA5/"
+  pcrglobwb_container: "/home/avandervee3/ewatercycle_pcr_25mar.sif"
+  PCR_GLOBAL_PARAMS: "/data/shared/parameter-sets/pcrglobwb_global"
+  single_point_coords: [61, 127]
+  multi_point_coords:
+    - [61, 127]
+    - [61, 128]
+    - [60, 128]
+    - [59, 129]
+    - [59, 130]
+    - [58, 131]
+    - [62, 126]
+    - [62, 125]
+    - [63, 124]
+    - [63, 123]
+    - [63, 122]
+    - [63, 121]
+  stations:
+    Chatly: {lat: 42.2, lon: 60.21}
+    Kerki: {lat: 37.80, lon: 65.28}
+
+
 
 
 

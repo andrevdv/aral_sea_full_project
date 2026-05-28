@@ -428,3 +428,44 @@ rule aggregate_pcrglobwb_station_outputs:
 # figures can be dependent on pipeline or be run indepnedently, but should be able to be run with a single command
 # stuff like NASA imagery should be able to run indepentenly, but should still be generated
 # focus on the graphs and the tables .tex files for now, but maybe also some of the maps etc
+
+
+# ── Karakum Canal Experiments ───────────────────────────
+
+KARAKUM_EXPERIMENTS = ["single_point", "multi_point", "wave"]
+
+def get_karakum_era5_outputs(time_block_name, experiment_name):
+    """Generate output file paths for a given ERA5 time block and experiment."""
+    base_dir = PROJECT_ROOT / "results" / "karakum_experiments" / time_block_name
+    return [
+        str(base_dir / f"karakum_experiment_{experiment_name}.nc"),
+        str(base_dir / f"karakum_experiment_{experiment_name}_station_data.nc"),
+    ]
+
+KARAKUM_ERA5_OUTPUTS = [
+    output
+    for block_name in config["active_time_blocks"]["era5"]
+    for experiment in KARAKUM_EXPERIMENTS
+    for output in get_karakum_era5_outputs(block_name, experiment)
+]
+
+
+rule all_karakum:
+    input:
+        KARAKUM_ERA5_OUTPUTS
+
+rule run_karakum_experiment:
+    input:
+        era5_forcing_flag=rules.generate_era5_forcing.output.flag,
+    output:
+        results = str(PROJECT_ROOT / "results" / "karakum_experiments" / "{time_block}" / "karakum_experiment_{experiment}.nc"),
+        station_data = str(PROJECT_ROOT / "results" / "karakum_experiments" / "{time_block}" / "karakum_experiment_{experiment}_station_data.nc"),
+    params:
+        start_date=lambda wildcards: config["time_blocks"][wildcards.time_block]["start_date"][:10],
+        end_date=lambda wildcards: config["time_blocks"][wildcards.time_block]["end_date"][:10],
+        output_dir=lambda wildcards: str(PROJECT_ROOT / "results" / "karakum_experiments" / wildcards.time_block),
+        config_file="config_aral.yaml",
+    log:
+        str(PROJECT_ROOT / "logs" / "karakum_experiments" / "{time_block}_{experiment}.log")
+    script:
+        "scripts/run_karakum_experiments.py"
