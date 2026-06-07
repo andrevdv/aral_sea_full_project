@@ -11,6 +11,8 @@ In short:
 
 ## Repository structure
 
+
+
 ## Requirements
 - for now: requirements.txt
 
@@ -25,13 +27,30 @@ In short:
 - 
 
 - [Input data folder](input_data/)
-- [Example dataset](input_data/sample_test.csv)
-- [Data description](input_data/README.md)
+
 
 ## Input data
 - short description, refer to data.md in data folder?
 
-## reproduction of my results?
+## Run examples
+
+- Preview workflow (dry-run):
+
+```bash
+snakemake -n
+```
+
+- Run the full workflow with 4 cores:
+
+```bash
+snakemake -j 4
+```
+
+- Run Snakemake with nohup + 8 cores + logging
+```bash
+nohup snakemake -j 8 > snakemake.log 2>&1 &
+```
+
 
 ## citation
 
