@@ -118,70 +118,115 @@ def normalize_noleap_calendar(ds: xr.Dataset) -> xr.Dataset:
     return ds
 
 
-def generate_lumped_ERA5_forcing(shape_name: str, start: str, end: str):
+def _resolve_shapefile(shape_name: str | None = None, shapefile: Path | None = None) -> tuple[Path, str]:
+    if shape_name is not None and shapefile is not None:
+        raise ValueError("Provide either shape_name or shapefile, not both")
+    if shape_name is None and shapefile is None:
+        raise ValueError("Either shape_name or shapefile must be provided")
+
+    if shapefile is not None:
+        resolved_shapefile = Path(shapefile)
+        if not resolved_shapefile.exists():
+            raise FileNotFoundError(f"Shapefile not found: {resolved_shapefile}")
+        return resolved_shapefile, resolved_shapefile.stem
+
+    resolved_shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    if not resolved_shapefile.exists():
+        raise FileNotFoundError(f"Shapefile not found: {resolved_shapefile}")
+    return resolved_shapefile, shape_name
+
+
+def generate_lumped_ERA5_forcing(
+    start: str,
+    end: str,
+    shape_name: str | None = None,
+    shapefile: Path | None = None,
+    output_root: Path | None = None,
+    output_name: str | None = None,
+):
     """Generate ERA5 forcing data for a lumped basin defined by a shapefile.
 
     Parameters
     ----------
-    shape_name : str
-        Name of the shapefile (folder and file should be the same: .../shape_name/shape_name.shp).
     start : str
         Start date in ISO format (YYYY-MM-DD or full ISO timestamp).
     end : str
         End date in ISO format (YYYY-MM-DD or full ISO timestamp).
+    shape_name : str, optional
+        Name of the shapefile folder and file stem.
+    shapefile : Path, optional
+        Explicit path to the shapefile.
+    output_root : Path, optional
+        Root directory for forcing output. Defaults to FORCING_ERA5.
+    output_name : str, optional
+        Name of the output subfolder. Defaults to the shapefile stem.
 
     Returns:
     -------
     ewatercycle.forcing.Forcing
         ERA5-based forcing object written to NetCDF files on disk.
     """
-    # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    shapefile_path, base_name = _resolve_shapefile(shape_name=shape_name, shapefile=shapefile)
 
     # year for naming
     year_span = f"{start[:4]}-{end[:4]}"
 
     # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_ERA5 / shape_name / year_span
+    output_base = Path(output_root) if output_root is not None else FORCING_ERA5
+    folder_name = output_name if output_name is not None else base_name
+    forcing_dir = output_base / folder_name / year_span
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate forcing using eWaterCycle
     forcing = ewatercycle.forcing.sources["LumpedMakkinkForcing"].generate(
-        dataset="ERA5", start_time=start, end_time=end, shape=shapefile, directory=forcing_dir
+        dataset="ERA5", start_time=start, end_time=end, shape=shapefile_path, directory=forcing_dir
     )
 
     return forcing
 
 
 def generate_lumped_CMIP_historical_forcing(
-    shape_name: str, start: str, end: str, model: str = DEFAULT_CMIP6_MODELS["historical"]
+    start: str,
+    end: str,
+    model: str = DEFAULT_CMIP6_MODELS["historical"],
+    shape_name: str | None = None,
+    shapefile: Path | None = None,
+    output_root: Path | None = None,
+    output_name: str | None = None,
 ):
     """Generate CMIP6 historical forcing data for a lumped basin.
 
     Parameters
     ----------
-    shape_name : str
-        Name of the shapefile (folder and file stem).
     start : str
         Start date in ISO format.
     end : str
         End date in ISO format.
     model : str, optional
         CMIP6 climate model name, by default "MPI-ESM1-2-HR".
+    shape_name : str, optional
+        Name of the shapefile folder and file stem.
+    shapefile : Path, optional
+        Explicit path to the shapefile.
+    output_root : Path, optional
+        Root directory for forcing output. Defaults to FORCING_CMIP_HIST.
+    output_name : str, optional
+        Name of the output subfolder. Defaults to the shapefile stem.
 
     Returns:
     -------
     ewatercycle.forcing.Forcing
         CMIP6 historical forcing object written to NetCDF files on disk.
     """
-    # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    shapefile_path, base_name = _resolve_shapefile(shape_name=shape_name, shapefile=shapefile)
 
     # year for naming
     year_span = f"{start[:4]}-{end[:4]}"
 
     # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_CMIP_HIST / shape_name / year_span
+    output_base = Path(output_root) if output_root is not None else FORCING_CMIP_HIST
+    folder_name = output_name if output_name is not None else base_name
+    forcing_dir = output_base / folder_name / year_span
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
     cmip_historical = {
@@ -196,7 +241,7 @@ def generate_lumped_CMIP_historical_forcing(
         dataset=cmip_historical,
         start_time=start,
         end_time=end,
-        shape=shapefile,
+        shape=shapefile_path,
         directory=forcing_dir,
     )
 
@@ -204,18 +249,19 @@ def generate_lumped_CMIP_historical_forcing(
 
 
 def generate_lumped_CMIP_future_forcing(
-    shape_name: str,
     start: str,
     end: str,
     ssp: str = "ssp245",
     model: str = DEFAULT_CMIP6_MODELS["future"],
+    shape_name: str | None = None,
+    shapefile: Path | None = None,
+    output_root: Path | None = None,
+    output_name: str | None = None,
 ):
     """Generate CMIP6 future scenario forcing data for a lumped basin.
 
     Parameters
     ----------
-    shape_name : str
-        Name of the shapefile (folder and file stem).
     start : str
         Start date in ISO format.
     end : str
@@ -224,20 +270,29 @@ def generate_lumped_CMIP_future_forcing(
         Scenario name (e.g., "ssp126", "ssp245", "ssp585").
     model : str, optional
         CMIP6 climate model name, by default "EC-Earth3".
+    shape_name : str, optional
+        Name of the shapefile folder and file stem.
+    shapefile : Path, optional
+        Explicit path to the shapefile.
+    output_root : Path, optional
+        Root directory for forcing output. Defaults to FORCING_CMIP_FUT.
+    output_name : str, optional
+        Name of the output subfolder. Defaults to the shapefile stem.
 
     Returns:
     -------
     ewatercycle.forcing.Forcing
         CMIP6 future forcing object written to NetCDF files on disk.
     """
-    # Path to the shapefile
-    shapefile = SHAPEFILES / shape_name / f"{shape_name}.shp"
+    shapefile_path, base_name = _resolve_shapefile(shape_name=shape_name, shapefile=shapefile)
 
     # year for naming
     year_span = f"{start[:4]}-{end[:4]}"
 
     # Directory where forcing outputs will be stored
-    forcing_dir = FORCING_CMIP_FUT / model / ssp / shape_name / year_span
+    output_base = Path(output_root) if output_root is not None else FORCING_CMIP_FUT
+    folder_name = output_name if output_name is not None else base_name
+    forcing_dir = output_base / model / ssp / folder_name / year_span
 
     forcing_dir.mkdir(parents=True, exist_ok=True)
 
@@ -255,7 +310,7 @@ def generate_lumped_CMIP_future_forcing(
         dataset=cmip_dataset,
         start_time=start,
         end_time=end,
-        shape=shapefile,
+        shape=shapefile_path,
         directory=forcing_dir,
     )
 
