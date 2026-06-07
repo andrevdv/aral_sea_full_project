@@ -288,9 +288,17 @@ rule preflight:
     log:
         str(PROJECT_ROOT / "logs" / "preflight.log")
     run:
+        from pathlib import Path
+
         errors = collect_preflight_errors(config, PLANNER_CSV)
+
+        env_file = PROJECT_ROOT / "environment.yml"
+        if not env_file.exists():
+            errors.append("Missing conda environment.yml in project root")
+
         if errors:
             raise ValueError("\n".join(["Preflight failed:", *errors]))
+
         Path(output.flag).parent.mkdir(parents=True, exist_ok=True)
         Path(output.flag).touch()
 
