@@ -13,6 +13,11 @@ project:
 paths:
   project_root:  "/home/avandervee3/aral_sea_full_project"
 
+  #code and notebook directories
+  src_dir:       ./src
+  scripts_dir:   ./scripts
+  notebooks_dir: ./notebooks
+
   #data directories
   data_dir:      ./data
   clonemaps_dir: ./data/clonemaps
@@ -25,10 +30,6 @@ paths:
 
   #output directories
   output_dir:    ./outputs
-
-  #notebooks and scripts directories
-  notebooks_dir: ./notebooks
-  scripts_dir:   ./scripts
 
 
 
@@ -491,7 +492,17 @@ karakum_experiment:
     Kerki: {lat: 37.80, lon: 65.28}
 
 
+# =========================
+# Aral_Sea Experiment
+# =========================
 
+aral_sea_experiment:
+  final_station_historical: ./results/runs/pcrglobwb/stations/final/historical.nc
+  final_station_future: ./results/runs/pcrglobwb/stations/final/future.nc
+  shapefile_path: ./data/shapefiles/AralSea/AralSea.shp
+  bathymetry_path: ./data/bathymetry/ahv_curve.csv
+  MAKKINK_FACTOR: 1.15  # Makkink correction factor (dimensionless) for open water evaporation estimation
+  GROUNDWATER_INFLOW: 0.0027397260273972603  # fallback groundwater inflow (km3/day)
 
 
 
