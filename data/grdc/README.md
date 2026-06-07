@@ -14,17 +14,18 @@ Selected subregions:
 
 ## Contents
 - `README.md`: documentation of dataset usage and provenance
-- (add other files if present)
+- GRDC discharge if added by user
 
 ## Usage in workflow
 GRDC data are used as observational reference data for:
 - validation of simulated river discharge
-- comparison with modelled water balance components
-- calibration/assessment of basin-scale hydrological behaviour
+- comparison with modelled discharge
+- calibration
 
 ## Notes
 - Data availability depends on selected GRDC stations and reporting periods.
 - This folder is intended for reference data only and is not modified during model runs.
+- workflow uses both the monthly and the daily data (.txt files)
 
 ## References
 Global Runoff Data Centre (GRDC): https://grdc.bafg.de/
