@@ -30,6 +30,10 @@ paths:
 
   #output directories
   output_dir:    ./outputs
+  results_dir:   ./results
+  aral_sea_results_dir: ./results/aral_sea
+  figures_dir:   ./results/figures
+
 
 
 
