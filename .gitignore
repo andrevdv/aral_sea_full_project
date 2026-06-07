@@ -243,6 +243,7 @@ logs/
 data/*
 !data/
 !data/**/README.md
+!data/**/ahv_curve.csv
 
 results/
 config/
