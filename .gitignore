@@ -241,7 +241,8 @@ outputs/
 logs/
 
 data/*
-!data/README.md
+!data/
+!data/**/README.md
 
 results/
 config/
