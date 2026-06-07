@@ -246,6 +246,9 @@ data/*
 !data/**/ahv_curve.csv
 
 results/
+!/results/runs/pcrglobwb/stations/final/future.nc
+!/results/runs/pcrglobwb/stations/final/historical.nc
+
 config/
 .snakemake/
 
