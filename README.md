@@ -52,7 +52,7 @@ nohup snakemake -j 8 > snakemake.log 2>&1 &
 ```
 
 
-## citation
+<!-- ## citation
 
 ## license
 
@@ -72,4 +72,4 @@ nohup snakemake -j 8 > snakemake.log 2>&1 &
 - studentmail (will cease to exist?)
 - github?
 - ewatercycle for projects repo?
-- OrcID https://orcid.org/0009-0009-5611-8888
+- OrcID https://orcid.org/0009-0009-5611-8888 -->
