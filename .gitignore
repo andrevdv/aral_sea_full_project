@@ -244,6 +244,7 @@ data/*
 !data/
 !data/**/README.md
 !data/**/ahv_curve.csv
+!data/ini_file
 
 results/
 !/results/runs/pcrglobwb/stations/final/future.nc
