@@ -230,8 +230,8 @@ __marimo__/
 *.prj
 *.cpg
 *.qmd
-*.map
-*.ini
+.map
+.ini
 *.geojson
 
 
