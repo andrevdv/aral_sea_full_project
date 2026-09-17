@@ -1,0 +1,23 @@
+forcing:
+  ewatercycle_tail: work/diagnostic/script
+  input_flag: /home/avandervee3/aral_sea_full_project/data/forcing/CMIP6/future/bias_corrected/CanESM5/ssp245/r1i1p1f1/2015-2100/AralSea_basin/generated.flag
+job:
+  end_date: '2074-12-31T00:00:00Z'
+  forcing: cmip
+  group: cmip_fut
+  job_id: r013_001
+  model: CanESM5
+  parameter_set: overall_calibrated
+  run_id: r013
+  scenario: ssp245
+  start_date: '2042-01-01T00:00:00Z'
+  time_block: cmip_fut_2042_2074
+  type: bias_corrected
+parameter_sets:
+  overall_calibrated:
+    description: General calibration against all discharge observations
+    path: data/ini_file/calibration_overall.ini
+runtime:
+  container_image: /home/avandervee3/ewatercycle_pcr_25mar.sif
+  planner_csv: config/experiment_planner.csv
+  project_root: /home/avandervee3/aral_sea_full_project

@@ -1,0 +1,23 @@
+forcing:
+  ewatercycle_tail: work/diagnostic/script
+  input_flag: /home/avandervee3/aral_sea_full_project/data/forcing/CMIP6/historical/regridded/MIROC6/r1i1p1f1/1940-2014/AralSea_basin/generated.flag
+job:
+  end_date: '1970-12-31T00:00:00Z'
+  forcing: cmip
+  group: cmip_hist
+  job_id: r005_000
+  model: MIROC6
+  parameter_set: overall_calibrated
+  run_id: r005
+  scenario: historical
+  start_date: '1940-01-01T00:00:00Z'
+  time_block: cmip_hist_1940_1970
+  type: regridded
+parameter_sets:
+  overall_calibrated:
+    description: General calibration against all discharge observations
+    path: data/ini_file/calibration_overall.ini
+runtime:
+  container_image: /home/avandervee3/ewatercycle_pcr_25mar.sif
+  planner_csv: config/experiment_planner.csv
+  project_root: /home/avandervee3/aral_sea_full_project
