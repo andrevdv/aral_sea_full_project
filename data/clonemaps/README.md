@@ -1,0 +1,1 @@
+follow tutorial from UU to make clonemaps
