@@ -257,6 +257,10 @@ report.html
 
 
 
-aral_sea_model_forcing*
-aral_sea_elevation_*
-*.tex
+# aral_sea_model_forcing*
+# aral_sea_elevation_*
+# *.tex
+
+aral_sea_model_forcing_cmip_historical
+aral_sea_model_forcing_cmip_future
+aral_sea_model_forcing

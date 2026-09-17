@@ -1,0 +1,27 @@
+
+\begin{table}[htbp]
+\centering
+\caption[Bias-correction results]{Basin-averaged annual precipitation and temperature statistics for ERA5, CMIP raw historical forcing, and bias-corrected CMIP data over 1940--2014. Bias is expressed relative to ERA5, which are used as pseudo-observations in this study.}
+\label{tab:climate_stats_1940_2014_combined_v2}
+\begin{tabular}{llrrrrrr}
+\toprule
+ &  & \multicolumn{3}{c}{Precipitation} & \multicolumn{3}{c}{Temperature} \\
+\cmidrule(lr){3-5} \cmidrule(lr){6-8}
+Dataset & Type & Mean (mm/yr) & Std & Bias (\%) & Mean (K) & Std & Bias (\%) \\
+\midrule
+ERA5 & Reference & 377.066 & 45.623 & - & 280.174 & 0.743 & - \\
+\midrule
+\multirow{2}{*}{CanESM5} & Raw & 306.700 & 43.595 & -18.662 & 278.780 & 0.963 & -0.497 \\
+ & Corrected & 371.032 & 59.546 & -1.600 & 280.177 & 0.944 & 0.001 \\
+\midrule
+\multirow{2}{*}{MIROC6} & Raw & 382.185 & 44.786 & 1.357 & 284.606 & 0.672 & 1.582 \\
+ & Corrected & 386.181 & 48.864 & 2.417 & 280.184 & 0.614 & 0.004 \\
+\midrule
+\multirow{2}{*}{MPI-ESM1-2-HR} & Raw & 346.309 & 36.632 & -8.157 & 282.042 & 0.638 & 0.667 \\
+ & Corrected & 362.408 & 38.136 & -3.887 & 280.184 & 0.667 & 0.003 \\
+\midrule
+\multirow{2}{*}{MRI-ESM2-0} & Raw & 510.835 & 49.941 & 35.476 & 281.454 & 0.648 & 0.457 \\
+ & Corrected & 392.522 & 41.395 & 4.099 & 280.184 & 0.682 & 0.004 \\
+\bottomrule
+\end{tabular}
+\end{table}
