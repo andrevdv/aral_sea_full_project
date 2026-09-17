@@ -236,7 +236,7 @@ __marimo__/
 
 
 # project outputs
-outputs/
+#outputs/
 
 logs/
 
@@ -246,11 +246,28 @@ data/*
 !data/**/ahv_curve.csv
 !data/ini_file
 
+# Specific data file to track
+!data/dahiti/
+!data/dahiti/83_water_level.nc
+!data/clonemaps/
+!data/clonemaps/**
+!data/bathymetry/
+!data/bathymetry/Nachtnebel_table.csv
+!data/shapefiles/
+!data/shapefiles/**
+!data/karakum/
+!data/karakum/KarakumCanal.csv
+
+
+
+
+
 results/
 !/results/runs/pcrglobwb/stations/final/future.nc
 !/results/runs/pcrglobwb/stations/final/historical.nc
+!/results/runs/expanded_runs.csv
 
-config/
+
 .snakemake/
 
 report.html
@@ -264,3 +281,6 @@ report.html
 aral_sea_model_forcing_cmip_historical
 aral_sea_model_forcing_cmip_future
 aral_sea_model_forcing
+
+
+!requirements.txt
