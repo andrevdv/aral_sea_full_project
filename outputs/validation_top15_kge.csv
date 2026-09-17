@@ -1,0 +1,401 @@
+run_id,experiment,station_name,station_key,grdc_id,weight,window_start,window_end,n_points,kge,n_points_monthly,kge_monthly
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chatly,Chatly,2817100,670.820393,1950-01-01,1954-12-31,1736,-2.9045231737446744,57,-2.944424870998782
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kerki,Kerki,2617110,555.877684,1950-01-01,1954-12-31,932,-0.034091218299905135,30,-0.024218006626231636
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1950-01-01,1954-12-31,1798,-7.57379268199958,60,-7.699269909666702
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1950-01-01,1954-12-31,0,,60,-6.431098353978584
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kal,Kal,2416202,300.0,1950-01-01,1954-12-31,0,,60,-2.729699064155235
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1950-01-01,1954-12-31,1826,-1.4359389775622105,60,-1.1622515595271259
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1950-01-01,1954-12-31,0,,60,-15.40750706471043
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1950-01-01,1954-12-31,0,,60,-24.045277344951163
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1950-01-01,1954-12-31,0,,60,-0.9460306047881588
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1950-01-01,1954-12-31,0,,60,0.21414564170957207
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Garm,Garm,2517920,141.421356,1950-01-01,1954-12-31,1744,0.06859830915911969,57,0.05557932228127349
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1950-01-01,1954-12-31,0,,60,-28.163891546358364
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khorog,Khorog,2517700,117.046999,1950-01-01,1954-12-31,0,,60,-1.668376615953401
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1950-01-01,1954-12-31,0,,58,-4.154666472612214
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1950-01-01,1954-12-31,0,,60,-0.7110419319008328
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Naryn,Naryn,2416890,102.469508,1950-01-01,1954-12-31,0,,60,0.44740977279056215
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1950-01-01,1954-12-31,0,,60,-0.8773275695136198
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tartki,Tartki,2517610,98.893883,1950-01-01,1954-12-31,0,,60,0.3185455017338422
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1950-01-01,1954-12-31,0,,60,-0.9923062539448038
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1950-01-01,1954-12-31,0,,60,-8.201702115788853
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ustie,Ustie,2517840,67.082039,1950-01-01,1954-12-31,0,,60,-7.735986282807676
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khabost,Khabost,2517710,64.65292,1950-01-01,1954-12-31,0,,60,-1.2050439967809456
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chalma,Chalma,2416760,61.967734,1950-01-01,1954-12-31,0,,60,0.6776092784324192
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chinor,Chinor,2517600,55.136195,1950-01-01,1954-12-31,0,,60,0.3277854277077613
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1950-01-01,1954-12-31,0,,60,0.42935423703501774
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1950-01-01,1954-12-31,0,,60,-3.4484324584556774
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1950-01-01,1954-12-31,0,,60,0.6186835843062717
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1950-01-01,1954-12-31,0,,60,0.28987197944795784
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1950-01-01,1954-12-31,0,,60,-1.0250004612333985
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Motravn,Motravn,2517850,44.045431,1950-01-01,1954-12-31,0,,60,-0.5775895838028124
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1950-01-01,1954-12-31,0,,60,-1.8089733526730911
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1950-01-01,1954-12-31,0,,60,0.10622213542082948
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1950-01-01,1954-12-31,0,,60,0.2795136019430374
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Charvak,Charvak,2416770,36.055513,1950-01-01,1954-12-31,0,,58,0.07102391677352093
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1950-01-01,1954-12-31,0,,60,-5.3471084551130605
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1950-01-01,1954-12-31,0,,60,0.47253588823490655
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1950-01-01,1954-12-31,0,,60,0.6627177885348513
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1950-01-01,1954-12-31,0,,60,-3.996205565971109
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1950-01-01,1954-12-31,0,,60,0.5494248453136698
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Aktash,Aktash,2416710,30.116441,1950-01-01,1954-12-31,0,,60,-0.4598992424819657
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1950-01-01,1954-12-31,0,,58,-14.350723583395808
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1950-01-01,1954-12-31,0,,60,-5.593649964210472
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1950-01-01,1954-12-31,0,,60,-6.985288607095198
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Karatag,Karatag,2517475,26.153394,1950-01-01,1954-12-31,0,,60,0.36278892456509293
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1950-01-01,1954-12-31,0,,60,-0.01433247328811249
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Varganza,Varganza,2817310,22.605309,1950-01-01,1954-12-31,0,,60,-3.8080722963153244
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Changet,Changet,2416780,19.519221,1950-01-01,1954-12-31,0,,60,-0.3650106377615465
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1950-01-01,1954-12-31,0,,59,0.6754569606003995
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1950-01-01,1954-12-31,0,,60,0.30972133254073675
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1950-01-01,1954-12-31,0,,60,-0.061241875091056386
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chatly,Chatly,2817100,670.820393,1955-01-01,1959-12-31,1826,-2.581616511054239,60,-2.6572662287527087
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kerki,Kerki,2617110,555.877684,1955-01-01,1959-12-31,1423,-0.08054210119156768,46,-0.08667570199675634
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1955-01-01,1959-12-31,1826,-8.793821093933419,60,-8.953684605752066
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1955-01-01,1959-12-31,0,,60,-11.28502230451927
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kal,Kal,2416202,300.0,1955-01-01,1959-12-31,0,,60,-3.4343808174916273
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1955-01-01,1959-12-31,1826,-1.4874774795840806,60,-1.3619077142872094
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1955-01-01,1959-12-31,0,,60,-15.133421458228614
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1955-01-01,1959-12-31,0,,55,-23.29741837037561
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1955-01-01,1959-12-31,0,,60,-1.0191332854371282
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1955-01-01,1959-12-31,0,,60,0.09163431427637381
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Garm,Garm,2517920,141.421356,1955-01-01,1959-12-31,1826,-0.013447996503098025,60,-0.03064763102702739
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1955-01-01,1959-12-31,0,,60,-30.938281847872787
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khorog,Khorog,2517700,117.046999,1955-01-01,1959-12-31,0,,60,-0.9604444544170672
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1955-01-01,1959-12-31,0,,60,-5.110271856616794
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1955-01-01,1959-12-31,0,,60,-0.31461382486220346
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Naryn,Naryn,2416890,102.469508,1955-01-01,1959-12-31,0,,60,0.6338921548129886
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1955-01-01,1959-12-31,0,,60,-0.7152162890923843
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tartki,Tartki,2517610,98.893883,1955-01-01,1959-12-31,0,,60,0.2543251614186315
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1955-01-01,1959-12-31,0,,60,-0.6563260675043123
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1955-01-01,1959-12-31,0,,60,-10.412031472514728
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ustie,Ustie,2517840,67.082039,1955-01-01,1959-12-31,0,,60,-6.335791308599134
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khabost,Khabost,2517710,64.65292,1955-01-01,1959-12-31,0,,60,-0.745021688660811
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chalma,Chalma,2416760,61.967734,1955-01-01,1959-12-31,0,,60,0.6100573950201619
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Chinor,Chinor,2517600,55.136195,1955-01-01,1959-12-31,0,,60,0.25441653207553094
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1955-01-01,1959-12-31,0,,60,0.23554919257776386
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1955-01-01,1959-12-31,0,,60,-4.199488327443318
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1955-01-01,1959-12-31,0,,60,0.6195716967869038
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1955-01-01,1959-12-31,0,,60,0.17326072239739976
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1955-01-01,1959-12-31,0,,60,-0.4569888160097708
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Motravn,Motravn,2517850,44.045431,1955-01-01,1959-12-31,0,,55,-0.5483187831079082
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1955-01-01,1959-12-31,0,,60,-2.2968933961641556
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1955-01-01,1959-12-31,0,,60,-0.1868852144322226
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1955-01-01,1959-12-31,0,,60,0.3346434273950347
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Charvak,Charvak,2416770,36.055513,1955-01-01,1959-12-31,0,,60,0.11341923760247308
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1955-01-01,1959-12-31,0,,60,-6.960473812901594
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1955-01-01,1959-12-31,0,,60,0.45522834875410945
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1955-01-01,1959-12-31,0,,60,0.5650847700477322
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1955-01-01,1959-12-31,0,,60,-4.13470534442299
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1955-01-01,1959-12-31,0,,60,0.5866532966178101
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Aktash,Aktash,2416710,30.116441,1955-01-01,1959-12-31,0,,60,-0.37133936308696325
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1955-01-01,1959-12-31,0,,60,-15.168069091888015
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1955-01-01,1959-12-31,0,,60,-5.179593437513859
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1955-01-01,1959-12-31,0,,60,-5.474900953742214
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Karatag,Karatag,2517475,26.153394,1955-01-01,1959-12-31,0,,60,0.33689043796304485
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1955-01-01,1959-12-31,0,,60,-0.20318386658265597
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Varganza,Varganza,2817310,22.605309,1955-01-01,1959-12-31,0,,60,-4.762872186427784
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Changet,Changet,2416780,19.519221,1955-01-01,1959-12-31,0,,60,-0.3835707532327586
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1955-01-01,1959-12-31,0,,60,0.652214055893659
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1955-01-01,1959-12-31,0,,60,0.2560241854862023
+r001,run_id=r001__model=era5__scenario=era5__type=raw__parameter_set=uncalibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1955-01-01,1959-12-31,0,,60,-0.08155761996528943
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1950-01-01,1954-12-31,1736,0.25584299866202176,57,0.2835840716340915
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1950-01-01,1954-12-31,932,0.1263139156412777,30,0.12698058754527974
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1950-01-01,1954-12-31,1798,0.5408527155807306,60,0.5677538812243256
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1950-01-01,1954-12-31,0,,60,0.6808724362269505
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kal,Kal,2416202,300.0,1950-01-01,1954-12-31,0,,60,0.2687316511579565
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1950-01-01,1954-12-31,1826,0.22874758090246528,60,0.2507752231631396
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1950-01-01,1954-12-31,0,,60,0.05784209463812262
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1950-01-01,1954-12-31,0,,60,-1.0927877077906945
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1950-01-01,1954-12-31,0,,60,0.20067438251828673
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1950-01-01,1954-12-31,0,,60,-0.1727444671202909
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Garm,Garm,2517920,141.421356,1950-01-01,1954-12-31,1744,-0.2248345351228509,57,-0.2259495345162874
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1950-01-01,1954-12-31,0,,60,-2.8795514855600652
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1950-01-01,1954-12-31,0,,60,0.8639511146396285
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1950-01-01,1954-12-31,0,,58,0.29240192439399904
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1950-01-01,1954-12-31,0,,60,0.3851182645661305
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1950-01-01,1954-12-31,0,,60,-0.03141339994321135
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1950-01-01,1954-12-31,0,,60,0.43035173178116415
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1950-01-01,1954-12-31,0,,60,0.347491227064884
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1950-01-01,1954-12-31,0,,60,0.3314680915831646
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1950-01-01,1954-12-31,0,,60,-1.405782393832622
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1950-01-01,1954-12-31,0,,60,0.38306189640374033
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1950-01-01,1954-12-31,0,,60,0.5552828390618223
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1950-01-01,1954-12-31,0,,60,-0.31128246945644356
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1950-01-01,1954-12-31,0,,60,0.11420837965361541
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1950-01-01,1954-12-31,0,,60,-0.39429179304796413
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1950-01-01,1954-12-31,0,,60,-0.1532931731614129
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1950-01-01,1954-12-31,0,,60,0.5880955931139347
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1950-01-01,1954-12-31,0,,60,-0.27811027559336443
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1950-01-01,1954-12-31,0,,60,0.5258327459252563
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1950-01-01,1954-12-31,0,,60,-0.7118782877579226
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1950-01-01,1954-12-31,0,,60,0.2513364267756357
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1950-01-01,1954-12-31,0,,60,0.15267342195217948
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1950-01-01,1954-12-31,0,,60,0.017239384118669987
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1950-01-01,1954-12-31,0,,58,-0.38249015647365114
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1950-01-01,1954-12-31,0,,60,-1.933521443641323
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1950-01-01,1954-12-31,0,,60,0.32025181538888103
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1950-01-01,1954-12-31,0,,60,-0.2674759372225426
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1950-01-01,1954-12-31,0,,60,-1.344862725564807
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1950-01-01,1954-12-31,0,,60,-0.14997282197508777
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1950-01-01,1954-12-31,0,,60,-0.11254877630973303
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1950-01-01,1954-12-31,0,,58,-4.789065884092615
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1950-01-01,1954-12-31,0,,60,-1.5665988798449058
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1950-01-01,1954-12-31,0,,60,-3.9630298594908497
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1950-01-01,1954-12-31,0,,60,-0.10112680512617667
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1950-01-01,1954-12-31,0,,60,-0.3539189392735109
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1950-01-01,1954-12-31,0,,60,0.17369992196490724
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Changet,Changet,2416780,19.519221,1950-01-01,1954-12-31,0,,60,-0.464727885910061
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1950-01-01,1954-12-31,0,,59,-0.4432378226402067
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1950-01-01,1954-12-31,0,,60,0.5772682011228136
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1950-01-01,1954-12-31,0,,60,-0.5046193211700891
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1955-01-01,1959-12-31,1826,0.20557427781456228,60,0.24831834883298975
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1955-01-01,1959-12-31,1423,0.1420133242160132,46,0.15333491475686423
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1955-01-01,1959-12-31,1826,0.3680290130355728,60,0.39171224129576854
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1955-01-01,1959-12-31,0,,60,0.0924092815366172
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kal,Kal,2416202,300.0,1955-01-01,1959-12-31,0,,60,0.35760212817154224
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1955-01-01,1959-12-31,1826,0.25121737404730116,60,0.2727614722747099
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1955-01-01,1959-12-31,0,,60,-0.08024946312997838
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1955-01-01,1959-12-31,0,,55,-1.3352537519704093
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1955-01-01,1959-12-31,0,,60,0.11794540341386861
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1955-01-01,1959-12-31,0,,60,-0.16305535400035231
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Garm,Garm,2517920,141.421356,1955-01-01,1959-12-31,1826,-0.23709712158501817,60,-0.24358635365958037
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1955-01-01,1959-12-31,0,,60,-3.5314416218211147
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1955-01-01,1959-12-31,0,,60,0.8800932687665115
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1955-01-01,1959-12-31,0,,60,-0.008168250477261552
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1955-01-01,1959-12-31,0,,60,0.33875568157446856
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1955-01-01,1959-12-31,0,,60,-0.11223479319720986
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1955-01-01,1959-12-31,0,,60,0.4283130995117711
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1955-01-01,1959-12-31,0,,60,0.41617293841846603
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1955-01-01,1959-12-31,0,,60,0.23430153242750618
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1955-01-01,1959-12-31,0,,60,-2.3545295391964536
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1955-01-01,1959-12-31,0,,60,0.5007182478735994
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1955-01-01,1959-12-31,0,,60,0.5192069167611482
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1955-01-01,1959-12-31,0,,60,-0.3514896248633699
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1955-01-01,1959-12-31,0,,60,0.12953984336672686
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1955-01-01,1959-12-31,0,,60,-0.498766558025336
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1955-01-01,1959-12-31,0,,60,-0.5191396634886147
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1955-01-01,1959-12-31,0,,60,0.7221994730738579
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1955-01-01,1959-12-31,0,,60,-0.2891176243474063
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1955-01-01,1959-12-31,0,,60,0.5557156120023099
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1955-01-01,1959-12-31,0,,55,-0.658024545892629
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1955-01-01,1959-12-31,0,,60,0.44800909958197277
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1955-01-01,1959-12-31,0,,60,0.39259368553351204
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1955-01-01,1959-12-31,0,,60,-0.030595467713998792
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1955-01-01,1959-12-31,0,,60,-0.37926995783355943
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1955-01-01,1959-12-31,0,,60,-2.9726630328970116
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1955-01-01,1959-12-31,0,,60,0.3456129136883155
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1955-01-01,1959-12-31,0,,60,-0.28181409848931915
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1955-01-01,1959-12-31,0,,60,-1.7074925727173782
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1955-01-01,1959-12-31,0,,60,-0.17034943031947636
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1955-01-01,1959-12-31,0,,60,-0.2101530303741561
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1955-01-01,1959-12-31,0,,60,-5.522031329991996
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1955-01-01,1959-12-31,0,,60,-1.5031163342108353
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1955-01-01,1959-12-31,0,,60,-4.394387275549977
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1955-01-01,1959-12-31,0,,60,-0.020502626840334548
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1955-01-01,1959-12-31,0,,60,-0.4211515982419205
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1955-01-01,1959-12-31,0,,60,-0.13827152477317917
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Changet,Changet,2416780,19.519221,1955-01-01,1959-12-31,0,,60,-0.43651109845421376
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1955-01-01,1959-12-31,0,,60,-0.43360785684389613
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1955-01-01,1959-12-31,0,,60,0.5905826142821334
+r002,run_id=r002__model=era5__scenario=era5__type=raw__parameter_set=overall_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1955-01-01,1959-12-31,0,,60,-0.40794619851969993
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1950-01-01,1954-12-31,1736,0.7827274993148086,57,0.8188650077759806
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1950-01-01,1954-12-31,932,0.3388891837956792,30,0.3422670200287363
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1950-01-01,1954-12-31,1798,-0.1418394072044169,60,-0.19022252788903615
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1950-01-01,1954-12-31,0,,60,0.12710557823972468
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kal,Kal,2416202,300.0,1950-01-01,1954-12-31,0,,60,0.5839150194275775
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1950-01-01,1954-12-31,1826,0.40496319787221347,60,0.40927870733086325
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1950-01-01,1954-12-31,0,,60,-1.9186381677524902
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1950-01-01,1954-12-31,0,,60,-4.0896777161472
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1950-01-01,1954-12-31,0,,60,0.293561473459082
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1950-01-01,1954-12-31,0,,60,-0.20334580686902082
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Garm,Garm,2517920,141.421356,1950-01-01,1954-12-31,1744,-0.26101772967939696,57,-0.2590570508453536
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1950-01-01,1954-12-31,0,,60,-5.214588137645826
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1950-01-01,1954-12-31,0,,60,0.48664473399475927
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1950-01-01,1954-12-31,0,,58,-0.22109919490691277
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1950-01-01,1954-12-31,0,,60,0.6026823370903469
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1950-01-01,1954-12-31,0,,60,-0.07379077863897088
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1950-01-01,1954-12-31,0,,60,0.69312014966019
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1950-01-01,1954-12-31,0,,60,0.39267862620250826
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1950-01-01,1954-12-31,0,,60,0.42231653887081066
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1950-01-01,1954-12-31,0,,60,-1.8067402766531644
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1950-01-01,1954-12-31,0,,60,-0.22180880279745963
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1950-01-01,1954-12-31,0,,60,0.8558217035204112
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1950-01-01,1954-12-31,0,,60,-0.22799512179573078
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1950-01-01,1954-12-31,0,,60,-0.08539985896414315
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1950-01-01,1954-12-31,0,,60,-0.263539365403223
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1950-01-01,1954-12-31,0,,60,-0.2642627938162274
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1950-01-01,1954-12-31,0,,60,0.6783551884066508
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1950-01-01,1954-12-31,0,,60,-0.14373587171965596
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1950-01-01,1954-12-31,0,,60,0.544286062127265
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1950-01-01,1954-12-31,0,,60,-0.6339871776913995
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1950-01-01,1954-12-31,0,,60,0.5568095550083205
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1950-01-01,1954-12-31,0,,60,0.36418519220202505
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1950-01-01,1954-12-31,0,,60,0.22392672540809455
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1950-01-01,1954-12-31,0,,58,-0.33706221396069624
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1950-01-01,1954-12-31,0,,60,-2.3950328592598535
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1950-01-01,1954-12-31,0,,60,0.20657223826811644
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1950-01-01,1954-12-31,0,,60,-0.2155114189644105
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1950-01-01,1954-12-31,0,,60,-1.9201866133864325
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1950-01-01,1954-12-31,0,,60,-0.0367935981768428
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1950-01-01,1954-12-31,0,,60,-0.0065193295161813936
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1950-01-01,1954-12-31,0,,58,-5.254471093842875
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1950-01-01,1954-12-31,0,,60,-2.250921399509606
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1950-01-01,1954-12-31,0,,60,-4.180041895476807
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1950-01-01,1954-12-31,0,,60,-0.037165779076855365
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1950-01-01,1954-12-31,0,,60,-0.29292493862438085
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1950-01-01,1954-12-31,0,,60,-0.05375812835444038
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Changet,Changet,2416780,19.519221,1950-01-01,1954-12-31,0,,60,-0.496739030531008
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1950-01-01,1954-12-31,0,,59,-0.21068566995706428
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1950-01-01,1954-12-31,0,,60,0.38215046039068923
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1950-01-01,1954-12-31,0,,60,-0.4585940149744232
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1955-01-01,1959-12-31,1826,0.7419252700501625,60,0.8244804111347099
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1955-01-01,1959-12-31,1423,0.3368530978684091,46,0.35962524607548796
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1955-01-01,1959-12-31,1826,-0.45855125897879434,60,-0.5234879531080072
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1955-01-01,1959-12-31,0,,60,-0.9865977287993202
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kal,Kal,2416202,300.0,1955-01-01,1959-12-31,0,,60,0.5992974979178465
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1955-01-01,1959-12-31,1826,0.4478817648042017,60,0.456740539072774
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1955-01-01,1959-12-31,0,,60,-1.7994678846561403
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1955-01-01,1959-12-31,0,,55,-3.884700816820226
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1955-01-01,1959-12-31,0,,60,0.2387145823478355
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1955-01-01,1959-12-31,0,,60,-0.2074672160552926
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Garm,Garm,2517920,141.421356,1955-01-01,1959-12-31,1826,-0.29447742320636205,60,-0.2946772513005371
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1955-01-01,1959-12-31,0,,60,-6.295692228997042
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1955-01-01,1959-12-31,0,,60,0.6824461104354037
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1955-01-01,1959-12-31,0,,60,-0.5804161978453108
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1955-01-01,1959-12-31,0,,60,0.552420816614098
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1955-01-01,1959-12-31,0,,60,-0.1530986131784966
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1955-01-01,1959-12-31,0,,60,0.6866181926684669
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1955-01-01,1959-12-31,0,,60,0.4298340907653556
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1955-01-01,1959-12-31,0,,60,0.3446931846600745
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1955-01-01,1959-12-31,0,,60,-2.674719746138145
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1955-01-01,1959-12-31,0,,60,0.04914040470702996
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1955-01-01,1959-12-31,0,,60,0.79440327513322
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1955-01-01,1959-12-31,0,,60,-0.2426856182496966
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1955-01-01,1959-12-31,0,,60,-0.11848632082218402
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1955-01-01,1959-12-31,0,,60,-0.3746771425978721
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1955-01-01,1959-12-31,0,,60,-0.5791143675544723
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1955-01-01,1959-12-31,0,,60,0.621946506172596
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1955-01-01,1959-12-31,0,,60,-0.12815835805511222
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1955-01-01,1959-12-31,0,,60,0.6016407786684863
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1955-01-01,1959-12-31,0,,55,-0.5665768741758914
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1955-01-01,1959-12-31,0,,60,0.6096659139495892
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1955-01-01,1959-12-31,0,,60,0.5220342096548793
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1955-01-01,1959-12-31,0,,60,0.2553711048304289
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1955-01-01,1959-12-31,0,,60,-0.3336575186566877
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1955-01-01,1959-12-31,0,,60,-3.365359404399343
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1955-01-01,1959-12-31,0,,60,0.16190035187574614
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1955-01-01,1959-12-31,0,,60,-0.24531435331985896
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1955-01-01,1959-12-31,0,,60,-1.6634092719161964
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1955-01-01,1959-12-31,0,,60,-0.07336451128263399
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1955-01-01,1959-12-31,0,,60,-0.08537243638770442
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1955-01-01,1959-12-31,0,,60,-5.731845291245638
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1955-01-01,1959-12-31,0,,60,-1.945329179424987
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1955-01-01,1959-12-31,0,,60,-4.083275542171097
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1955-01-01,1959-12-31,0,,60,0.05233004310350997
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1955-01-01,1959-12-31,0,,60,-0.37914222603475833
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1955-01-01,1959-12-31,0,,60,-0.23905358223248196
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Changet,Changet,2416780,19.519221,1955-01-01,1959-12-31,0,,60,-0.5990961082867308
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1955-01-01,1959-12-31,0,,60,-0.25912201461462425
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1955-01-01,1959-12-31,0,,60,0.2793231379409866
+r003,run_id=r003__model=era5__scenario=era5__type=raw__parameter_set=amu_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1955-01-01,1959-12-31,0,,60,-0.40762311459066947
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1950-01-01,1954-12-31,1736,-0.16215880086754741,57,-0.15467553994910355
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1950-01-01,1954-12-31,932,-0.13104569423938695,30,-0.11618912555715832
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1950-01-01,1954-12-31,1798,0.3869767442666524,60,0.4242007130981359
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1950-01-01,1954-12-31,0,,60,0.5364912154291824
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kal,Kal,2416202,300.0,1950-01-01,1954-12-31,0,,60,0.10747635434745151
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1950-01-01,1954-12-31,1826,0.10052511018922994,60,0.12061452137885953
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1950-01-01,1954-12-31,0,,60,0.4984115651283221
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1950-01-01,1954-12-31,0,,60,0.00359024619576942
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1950-01-01,1954-12-31,0,,60,0.10916436823227182
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1950-01-01,1954-12-31,0,,60,-0.23729621708059767
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Garm,Garm,2517920,141.421356,1950-01-01,1954-12-31,1744,-0.23734994957194333,57,-0.22588388750082333
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1950-01-01,1954-12-31,0,,60,-2.414923010429377
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1950-01-01,1954-12-31,0,,60,0.6653971971445175
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1950-01-01,1954-12-31,0,,58,0.1967326829614594
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1950-01-01,1954-12-31,0,,60,0.3055970621309757
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1950-01-01,1954-12-31,0,,60,-0.050962162625016516
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1950-01-01,1954-12-31,0,,60,-0.04565888297656051
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1950-01-01,1954-12-31,0,,60,0.338047149494356
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1950-01-01,1954-12-31,0,,60,0.2306314124136396
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1950-01-01,1954-12-31,0,,60,-1.1425717552905335
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1950-01-01,1954-12-31,0,,60,0.6515935557587939
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1950-01-01,1954-12-31,0,,60,0.5205924707513155
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1950-01-01,1954-12-31,0,,60,-0.3562537882218577
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1950-01-01,1954-12-31,0,,60,0.07059752118405582
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1950-01-01,1954-12-31,0,,60,-0.42108031178131533
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1950-01-01,1954-12-31,0,,60,-0.38030845758528353
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1950-01-01,1954-12-31,0,,60,0.414397228648545
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1950-01-01,1954-12-31,0,,60,-0.399966460813604
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1950-01-01,1954-12-31,0,,60,0.417143927023074
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1950-01-01,1954-12-31,0,,60,-0.7849563805297588
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1950-01-01,1954-12-31,0,,60,-0.1647607541170537
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1950-01-01,1954-12-31,0,,60,0.008831200309234677
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1950-01-01,1954-12-31,0,,60,-0.027490626386790895
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1950-01-01,1954-12-31,0,,58,-0.3971173722438779
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1950-01-01,1954-12-31,0,,60,-1.6558134486590124
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1950-01-01,1954-12-31,0,,60,0.4219392008199221
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1950-01-01,1954-12-31,0,,60,-0.34250792684738474
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1950-01-01,1954-12-31,0,,60,-1.8007305687348438
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1950-01-01,1954-12-31,0,,60,-0.2097355278893971
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1950-01-01,1954-12-31,0,,60,-0.17046213075352767
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1950-01-01,1954-12-31,0,,58,-5.197839352412171
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1950-01-01,1954-12-31,0,,60,-1.8399743888640656
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1950-01-01,1954-12-31,0,,60,-6.594427599352434
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1950-01-01,1954-12-31,0,,60,-0.21862307091553657
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1950-01-01,1954-12-31,0,,60,-0.3484394723879478
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1950-01-01,1954-12-31,0,,60,0.4313423765408395
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Changet,Changet,2416780,19.519221,1950-01-01,1954-12-31,0,,60,-0.6197405283747297
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1950-01-01,1954-12-31,0,,59,-0.39818510102464844
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1950-01-01,1954-12-31,0,,60,0.6748770888155446
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1950-01-01,1954-12-31,0,,60,-0.4999261659194707
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chatly,Chatly,2817100,670.820393,1955-01-01,1959-12-31,1826,-0.21080419912198423,60,-0.20345071834120598
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kerki,Kerki,2617110,555.877684,1955-01-01,1959-12-31,1423,-0.06366466665414872,46,-0.05075893666850928
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tyumen-aryk,Tyumen-aryk,2316200,467.974358,1955-01-01,1959-12-31,1826,0.37816369295487484,60,0.4522736487164559
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Bekabad,Bekabad,2816203,376.828874,1955-01-01,1959-12-31,0,,60,0.1772597212731687
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kal,Kal,2416202,300.0,1955-01-01,1959-12-31,0,,60,0.1587644194877713
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Uch-kurgan,Uch-kurgan,2416850,241.660919,1955-01-01,1959-12-31,1826,0.06174991181255329,60,0.09445726768543572
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Kazalinsk,Kazalinsk,2316201,230.0,1955-01-01,1959-12-31,0,,60,0.47522861163587127
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Karaozek,Karaozek,2316204,230.0,1955-01-01,1959-12-31,0,,55,-0.23736222073567204
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Kekirim,Ust. Kekirim,2416860,186.010752,1955-01-01,1959-12-31,0,,60,0.001365075443940933
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tutkaul,Tutkaul,2517900,176.635217,1955-01-01,1959-12-31,0,,60,-0.2553153724653314
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Garm,Garm,2517920,141.421356,1955-01-01,1959-12-31,1826,-0.27084984157245584,60,-0.25953842454279297
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Barchadiv,Barchadiv,2517820,129.22848,1955-01-01,1959-12-31,0,,60,-2.569532585917708
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khorog,Khorog,2517700,117.046999,1955-01-01,1959-12-31,0,,60,0.7481947620540255
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Manguzar,Manguzar,2817400,116.1895,1955-01-01,1959-12-31,0,,60,-0.16092585364589929
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Hodjikent,Hodjikent,2816550,104.403065,1955-01-01,1959-12-31,0,,60,0.2442655329987513
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Naryn,Naryn,2416890,102.469508,1955-01-01,1959-12-31,0,,60,-0.13781484178496806
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dupuli,Dupuli,2517450,100.995049,1955-01-01,1959-12-31,0,,60,0.009160141227203988
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tartki,Tartki,2517610,98.893883,1955-01-01,1959-12-31,0,,60,0.4577157163358637
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Djumgol,Ust. Djumgol,2416750,72.732386,1955-01-01,1959-12-31,0,,60,0.1433675053885226
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chirakchi,Chirakchi,2817300,67.453688,1955-01-01,1959-12-31,0,,60,-2.1928035984164227
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ustie,Ustie,2517840,67.082039,1955-01-01,1959-12-31,0,,60,0.48049461906071345
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khabost,Khabost,2517710,64.65292,1955-01-01,1959-12-31,0,,60,0.5278212746820996
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chalma,Chalma,2416760,61.967734,1955-01-01,1959-12-31,0,,60,-0.3965573329838836
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Chinor,Chinor,2517600,55.136195,1955-01-01,1959-12-31,0,,60,0.13914578694296398
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Gulcha,Gulcha,2416730,52.345009,1955-01-01,1959-12-31,0,,60,-0.5137214569447841
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Obizarang,Obizarang,2817630,51.283526,1955-01-01,1959-12-31,0,,60,-0.8467550959310826
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Sarykanda,Sarykanda,2816650,49.799598,1955-01-01,1959-12-31,0,,60,0.5159483057434804
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tuleken,Tuleken,2416800,49.29503,1955-01-01,1959-12-31,0,,60,-0.5196376215062575
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Uch-korgon,Uch-korgon,2416680,47.116876,1955-01-01,1959-12-31,0,,60,0.24744245726101832
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Motravn,Motravn,2517850,44.045431,1955-01-01,1959-12-31,0,,55,-0.8130794846210463
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Andarhan,Andarhan,2416665,41.713307,1955-01-01,1959-12-31,0,,60,-0.0717053305521802
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Karakol,Ust. Karakol,2416810,40.987803,1955-01-01,1959-12-31,0,,60,0.08055379398180396
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Tash-kurgan,Tash-kurgan,2516590,39.496835,1955-01-01,1959-12-31,0,,60,-0.09941978353858194
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Charvak,Charvak,2416770,36.055513,1955-01-01,1959-12-31,0,,60,-0.4103993226883844
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Paulgan,Paulgan,2416670,36.055513,1955-01-01,1959-12-31,0,,60,-2.7776998504489003
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dagana-ata,Dagana-ata,2517550,35.637059,1955-01-01,1959-12-31,0,,60,0.5023968475810994
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Salamalik,Salamalik,2416720,34.351128,1955-01-01,1959-12-31,0,,60,-0.3564081965300072
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Sudgina,Sudgina,2517480,33.166248,1955-01-01,1959-12-31,0,,60,-2.0969936910242812
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Mikhailovskoe,Mikhailovskoe,2416690,31.780497,1955-01-01,1959-12-31,0,,60,-0.2814238155192026
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Aktash,Aktash,2416710,30.116441,1955-01-01,1959-12-31,0,,60,-0.277155286354994
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,King Guzar,King Guzar,2817410,30.016662,1955-01-01,1959-12-31,0,,60,-6.2471129851486324
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Khazarnova,Khazarnova,2817460,29.068884,1955-01-01,1959-12-31,0,,60,-1.8328055475406675
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Dazgon,Dazgon,2416660,26.683328,1955-01-01,1959-12-31,0,,60,-7.540965934685445
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Karatag,Karatag,2517475,26.153394,1955-01-01,1959-12-31,0,,60,-0.19533604713978248
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Kairagach,Ust. Kairagach,2416840,23.021729,1955-01-01,1959-12-31,0,,60,-0.3662854471993815
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Varganza,Varganza,2817310,22.605309,1955-01-01,1959-12-31,0,,60,0.08814970042757975
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Changet,Changet,2416780,19.519221,1955-01-01,1959-12-31,0,,60,-0.5110953678887025
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Ust. Tostu,Ust. Tostu,2416900,19.131126,1955-01-01,1959-12-31,0,,60,-0.4003716742478285
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Alibegi,Alibegi,2517470,19.026298,1955-01-01,1959-12-31,0,,60,0.5755351327869638
+r004,run_id=r004__model=era5__scenario=era5__type=raw__parameter_set=syr_calibrated__era=historical,Donguztay,Donguztay,2416880,12.884099,1955-01-01,1959-12-31,0,,60,-0.45179778584244756
